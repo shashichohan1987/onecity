@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Things to do in the City of London - OneCity</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="OneCity home">
+      <img src="assets/svg/logo.svg" alt="OneCity" width="180" height="30">
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="#" class="has-arrow">Things to do <span class="arrow">&rarr;</span></a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/guides/">Guides</a></li>
+        <li><a href="book-city.html">Book City</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="search-trigger" id="searchTrigger">
+        <span>Search</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--outline" id="calendarTrigger" aria-label="Open calendar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--fill" id="burgerTrigger" aria-label="Open menu">
+        <svg width="20" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="1" x2="24" y2="1"/><line x1="0" y1="9" x2="24" y2="9"/><line x1="0" y1="17" x2="24" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-inner">
+      <button type="button" class="side-menu-close" id="sideMenuClose" aria-label="Close menu">&times;</button>
+      <ul class="side-menu-secondary">
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+        <li><a href="#sign-up">Sign up</a></li>
+      </ul>
+      <ul class="side-menu-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+      <div class="side-menu-social">
+        <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+          <svg width="20" height="16" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button type="button" class="search-overlay-close" id="searchOverlayClose" aria-label="Close search">&times;</button>
+      <h3>What&rsquo;s on in the city of London</h3>
+      <div class="search-field">
+        <input type="text" placeholder="Type search" aria-label="Search">
+        <button type="button" aria-label="Search the website">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <ul class="search-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <img src="assets/img/hero.jpg" alt="" class="hero-img">
+    <div class="hero-nav">
+      <button type="button" class="hero-arrow" aria-label="Previous slide">&larr;</button>
+      <button type="button" class="hero-arrow" aria-label="Next slide">&rarr;</button>
+    </div>
+  </section>
+
+  <section class="hero-banner">
+    <p>Open House Festival (12-20 September 2026): don&rsquo;t miss our guide to all the FREE experiences, walks, tours and visits in the City of London.</p>
+    <a href="https://onecitylondon.com/event/open-house-festival/" class="btn btn--outline-navy">Discover the programme <span class="arrow">&rarr;</span></a>
+  </section>
+
+  <section class="explore">
+    <h2 class="section-title section-title--center">Explore the City of London</h2>
+    <div class="tile-scroll" id="exploreScroll">
+      <a class="tile" href="https://onecitylondon.com/after-work/">
+        <img src="assets/img/cat-after-work.jpg" alt="After Work">
+        <span class="tile-label">After Work <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/arts-culture/">
+        <img src="assets/img/cat-arts-culture.jpg" alt="Arts & Culture">
+        <span class="tile-label">Arts &amp; Culture <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/whats-on/?show_calendar=1&category=deals-offers">
+        <img src="assets/img/cat-deals-offers.jpg" alt="Deals & Offers">
+        <span class="tile-label">Deals &amp; Offers <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/experience/">
+        <img src="assets/img/cat-experiences.jpg" alt="Experiences">
+        <span class="tile-label">Experiences <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/eat-and-drink/">
+        <img src="assets/img/cat-food-drink.jpg" alt="Food & Drink">
+        <span class="tile-label">Food &amp; Drink <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/attractions-in-city-of-london/">
+        <img src="assets/img/cat-landmarks.png" alt="Landmarks">
+        <span class="tile-label">Landmarks <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/shop/">
+        <img src="assets/img/cat-shopping.jpg" alt="Shopping">
+        <span class="tile-label">Shopping <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/hotels-in-city-of-london/">
+        <img src="assets/img/cat-stay.jpg" alt="Stay">
+        <span class="tile-label">Stay <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tile" href="https://onecitylondon.com/wellbeing/">
+        <img src="assets/img/cat-wellbeing.jpg" alt="Wellbeing">
+        <span class="tile-label">Wellbeing <span class="arrow">&rarr;</span></span>
+      </a>
+    </div>
+    <div class="scroll-controls">
+      <button type="button" class="scroll-btn" data-target="exploreScroll" data-dir="-1" aria-label="Scroll left">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="40" y1="8" x2="1" y2="8"/><polyline points="9,1 1,8 9,15"/></svg>
+      </button>
+      <button type="button" class="scroll-btn" data-target="exploreScroll" data-dir="1" aria-label="Scroll right">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="8" x2="39" y2="8"/><polyline points="31,1 39,8 31,15"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="split-feature">
+    <div class="split-feature-inner">
+      <div class="split-feature-img">
+        <img src="assets/img/feature-august.webp" alt="">
+      </div>
+      <div class="split-feature-body">
+        <h2 class="section-title">16 things to do this August in the City of London</h2>
+        <p>Experience cinema under the stars, introduce the kids to new and adventurous worlds, or explore architectural giants alongside historic monuments.</p>
+        <p>This summer has so much in store for the Square Mile, so read our recommendations to get you out and about this August.</p>
+        <a href="https://onecitylondon.com/article/fun-things-to-do-this-august-in-the-city-of-london/" class="btn btn--outline-navy">Find out more <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="whats-on">
+    <div class="section-head">
+      <h2 class="section-title">What&rsquo;s on this month</h2>
+      <a href="https://onecitylondon.com/whats-on/" class="btn btn--outline-navy btn--sm">see all <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="event-grid">
+      <article class="event-card">
+        <a href="https://onecitylondon.com/event/open-house-festival/" class="event-card-img">
+          <img src="assets/img/event-openhouse.jpg" alt="Open House Festival 2026 in the City of London">
+          <span class="badge">Featured</span>
+        </a>
+        <h4><a href="https://onecitylondon.com/event/open-house-festival/">Open House Festival 2026 in the City of London</a></h4>
+        <p class="event-desc">Get ready to explore the City of London&rsquo;s rich array of ancient and modern buildings for free during Open House Festival 2026.</p>
+        <p class="event-date">12.09.2026 &ndash; 20.09.2026</p>
+      </article>
+      <article class="event-card">
+        <a href="https://onecitylondon.com/event/second-saturday-family-activities-at-guildhall-art-gallery-in-september/" class="event-card-img">
+          <img src="assets/img/event-familyday.jpg" alt="Open House Family Day – Second Saturday in the City">
+        </a>
+        <h4><a href="https://onecitylondon.com/event/second-saturday-family-activities-at-guildhall-art-gallery-in-september/">Open House Family Day &ndash; Second Saturday in the City</a></h4>
+        <a class="event-location" href="https://onecitylondon.com/event/second-saturday-family-activities-at-guildhall-art-gallery-in-september/">Multiple locations</a>
+        <p class="event-desc">Guildhall Art Gallery is joining forces with cultural sites across the City to create a day of free family activities as part of Open House 2026</p>
+        <p class="event-date">12.09.2026</p>
+      </article>
+      <article class="event-card">
+        <a href="https://onecitylondon.com/event/sheep-drive-and-livery-fair/" class="event-card-img">
+          <img src="assets/img/event-sheepdrive.jpg" alt="Sheep Drive and Livery Fair">
+        </a>
+        <h4><a href="https://onecitylondon.com/event/sheep-drive-and-livery-fair/">Sheep Drive and Livery Fair</a></h4>
+        <a class="event-location" href="https://www.google.com/maps/dir//51.5089007,-0.0940731">Southwark Bridge</a>
+        <p class="event-desc">A long-established charity event, celebrating a Freeman&rsquo;s ancient &ldquo;right&rdquo; to bring sheep to market over the Thames, toll free; all in aid of raising funds for The Woolmen Charity and The Lord Mayor&rsquo;s Appeal.</p>
+        <p class="event-date">27.09.2026</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="interested">
+    <div class="interested-inner">
+      <h3>What are you interested in?</h3>
+      <div class="pill-grid">
+        <a href="https://onecitylondon.com/after-work/" class="pill">After Work</a>
+        <a href="https://onecitylondon.com/arts-culture/" class="pill">Arts &amp; Culture</a>
+        <a href="https://onecitylondon.com/whats-on/?show_calendar=1&category=deals-offers" class="pill">Deals &amp; Offers</a>
+        <a href="https://onecitylondon.com/experience/" class="pill">Experiences</a>
+        <a href="https://onecitylondon.com/eat-and-drink/" class="pill">Food &amp; Drink</a>
+        <a href="https://onecitylondon.com/attractions-in-city-of-london/" class="pill">Landmarks</a>
+        <a href="https://onecitylondon.com/shop/" class="pill">Shopping</a>
+        <a href="https://onecitylondon.com/hotels-in-city-of-london/" class="pill">Stay</a>
+        <a href="https://onecitylondon.com/wellbeing/" class="pill">Wellbeing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides">
+    <h2 class="section-title section-title--center">Read our Guides to the City of London</h2>
+    <div class="guides-grid">
+      <a class="guide-card guide-card--lg" href="https://onecitylondon.com/article/top-things-to-do-on-a-friday-in-the-city-of-london/">
+        <img src="assets/img/guide-friday.jpg" alt="Top things to do on a Friday in the City of London">
+        <h4>Top things to do on a Friday in the City of London</h4>
+      </a>
+      <a class="guide-card guide-card--lg" href="https://onecitylondon.com/article/walks-in-the-city/">
+        <img src="assets/img/guide-walks.jpg" alt="Walking Tours and Trails in the City">
+        <h4>Walking Tours and Trails in the City</h4>
+      </a>
+      <a class="guide-card" href="https://onecitylondon.com/article/nightlife-city-of-london/">
+        <img src="assets/img/guide-evening.jpg" alt="An evening in the City">
+        <h4>An evening in the City</h4>
+      </a>
+      <a class="guide-card" href="https://onecitylondon.com/article/afternoon-tea-in-city-of-london/">
+        <img src="assets/img/guide-tea.jpg" alt="7 special afternoon tea spots in the City of London">
+        <h4>7 special afternoon tea spots in the City of London</h4>
+      </a>
+      <a class="guide-card" href="https://onecitylondon.com/article/rooftop-bars-and-restaurants-city-of-london/">
+        <img src="assets/img/guide-rooftop.jpg" alt="Rooftop Bars and Restaurants in the City of London">
+        <h4>Rooftop Bars and Restaurants in the City of London</h4>
+      </a>
+      <a class="guide-card" href="https://onecitylondon.com/article/get-your-art-fix-in-the-city/">
+        <img src="assets/img/guide-art.jpg" alt="Get Your Art Fix in the City">
+        <h4>Get Your Art Fix in the City</h4>
+      </a>
+    </div>
+  </section>
+
+  <section class="newsletter-band" id="sign-up">
+    <div class="newsletter-band-inner">
+      <p>Ideas to your inbox: sign up for new openings and unique experiences.</p>
+      <form class="newsletter-form newsletter-form--stacked" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white btn--sm">Sign up
+          <svg viewBox="0 0 26 11" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="0" y1="5.5" x2="25" y2="5.5"/><polyline points="18,0.5 25,5.5 18,10.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="split-feature split-feature--summer">
+    <div class="split-feature-inner">
+      <div class="split-feature-img split-feature-img--teal">
+        <img src="assets/img/summer-badge.png" alt="Summer in the City">
+      </div>
+      <div class="split-feature-body">
+        <h2 class="section-title">Make the most of your Summer in the City</h2>
+        <p>Grab your sunglasses and get ready for a season of rediscoveries with Summer in the City.</p>
+        <p>From vibrant rooftops sessions with friends and colleagues, to quiet green spaces with your family, or just to enjoy your lunchtime, the Square Mile invites you to a summer of rediscovery.</p>
+        <a href="https://onecitylondon.com/summer-in-the-city/" class="btn btn--outline-navy">Find out more <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="discover">
+    <div class="section-head">
+      <h2 class="section-title">Discover more</h2>
+      <a href="https://onecitylondon.com/guides/" class="btn btn--outline-navy btn--sm">See All <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="tile-scroll tile-scroll--cards" id="discoverScroll">
+      <a class="discover-card" href="https://onecitylondon.com/article/where-to-get-the-best-views-of-london/">
+        <img src="assets/img/discover-views.jpg" alt="Where to get the best views of London">
+        <h4>Where to get the best views of London</h4>
+        <p>Historic architecture and towering skyscrapers form London's beautiful skyline, and here's our list of where you can get the best views across the city, all from the Square Mile.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/14-things-to-do-with-the-kids-this-summer-holiday/">
+        <img src="assets/img/discover-kids.jpg" alt="15 things to do with the kids this summer holiday">
+        <h4>15 things to do with the kids this summer holiday</h4>
+        <p>Those six weeks over summer can prove a challenge to entertain your kids, but in the City, there are countless worlds to introduce them to.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/fun-things-to-do-this-august-in-the-city-of-london/">
+        <img src="assets/img/discover-august.jpg" alt="16 things to do this August in the City of London">
+        <h4>16 things to do this August in the City of London</h4>
+        <p>The City of London is coming alive with a huge range of things to do, from exhibitions and an outdoor cinema to live music and family fun.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/18-things-to-do-this-july-in-the-city-of-london/">
+        <img src="assets/img/discover-july.jpg" alt="18 things to do this July in the City of London">
+        <h4>18 things to do this July in the City of London</h4>
+        <p>From an iconic beer festival, Pride events and sporting greatness to history and culture, July has so much to offer the Square Mile.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/city-visitor-trail/">
+        <img src="assets/img/discover-trail.jpg" alt="City Visitor Trail">
+        <h4>City Visitor Trail</h4>
+        <p>The City Visitor Trail is a 90 minute self-guided tour perfect for those on a sight-seeing mission. Take on world famous attractions, uncover hidden gems and feast on the culture, history and heritage of the City of London.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/parks-in-city-of-london/">
+        <img src="assets/img/discover-parks.jpg" alt="Parks and green spaces in the City of London">
+        <h4>Parks and green spaces in the City of London</h4>
+        <p>Whether you&rsquo;re looking for a tranquil picnic spot or somewhere for quiet contemplation, here are some of the City&rsquo;s greenest spaces to seek out.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/hidden-gems-city-of-london/">
+        <img src="assets/img/discover-hidden.jpg" alt="10 hidden gems in the City of London for you to explore!">
+        <h4>10 hidden gems in the City of London for you to explore!</h4>
+        <p>Whether you love art, history or simply a good old snoop around, there&rsquo;s a treasure trail of hidden gems to find in just one square mile &ndash; the Square Mile.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/where-to-meet-historys-great-characters-in-the-city/">
+        <img src="assets/img/discover-history.jpg" alt="Where to ‘meet’ history’s great characters in the City">
+        <h4>Where to &lsquo;meet&rsquo; history&rsquo;s great characters in the City</h4>
+        <p>You can get to know the City&rsquo;s famous historical residents on a stroll through the streets &ndash; look for the rectangular City of London blue plaques.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/art-in-city-of-london/">
+        <img src="assets/img/discover-artlovers.jpg" alt="A Day in the City: Art-lovers Edition">
+        <h4>A Day in the City: Art-lovers Edition</h4>
+        <p>Dive into art experiences in the City of London &amp; explore vibrant galleries, street art, &amp; live performances. A cultural journey for art enthusiasts.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/restaurants-in-city-of-london/">
+        <img src="assets/img/discover-restaurants.jpg" alt="19 of the best restaurants to eat in the City of London">
+        <h4>19 of the best restaurants to eat in the City of London</h4>
+        <p>Savor the flavors of the City of London with our guide to 19 of the best restaurants, including a diverse range of cuisines and dining experiences.</p>
+      </a>
+    </div>
+    <div class="scroll-controls">
+      <button type="button" class="scroll-btn" data-target="discoverScroll" data-dir="-1" aria-label="Scroll left">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="40" y1="8" x2="1" y2="8"/><polyline points="9,1 1,8 9,15"/></svg>
+      </button>
+      <button type="button" class="scroll-btn" data-target="discoverScroll" data-dir="1" aria-label="Scroll right">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="8" x2="39" y2="8"/><polyline points="31,1 39,8 31,15"/></svg>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-newsletter">
+      <h3>Sign up to the newsletter</h3>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/cookies/">Cookies</a></li>
+        <li><a href="https://onecitylondon.com/privacy/">Privacy</a></li>
+        <li><a href="https://onecitylondon.com/sitemap/">Sitemap</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/contact-us/">Contact Us</a></li>
+        <li><a href="https://onecitylondon.com/visitor-safety-and-security/">Visitor Safety and Security</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+        <svg width="22" height="18" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-partners">
+    <a href="https://www.cityoflondon.gov.uk/" class="partner-logo partner-logo--col">
+      <img src="assets/img/partner-col.png" alt="City of London Corporation">
+    </a>
+    <a href="https://nla.london/" class="partner-logo">
+      <img src="assets/img/partner-nla.png" alt="Partner">
+    </a>
+    <a href="https://www.citypropertyassociation.com/" class="partner-logo">
+      <img src="assets/img/partner-cpa.png" alt="Partner">
+    </a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -408,7 +408,6 @@
   document.getElementById('paymentForm').addEventListener('submit', function (e) {
     e.preventDefault();
     if (!this.reportValidity()) return;
-    window.open('https://www.bookitplease.com/hotels', '_blank', 'noopener');
     var p = new URLSearchParams({
       hotel: slug, checkin: checkin, checkout: checkout, adults: adults, rooms: roomsCount,
       items: itemsParam, name: guestName, email: guestEmail

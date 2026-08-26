@@ -338,7 +338,7 @@
     var grid = document.getElementById('recentGrid');
     var section = document.getElementById('recentSearches');
     if (!grid || !section) return;
-    var list = seedIfEmpty();
+    var list = seedIfEmpty().slice(0, 6);
     if (!list.length) { section.hidden = true; return; }
 
     grid.innerHTML = list.map(function (s) {

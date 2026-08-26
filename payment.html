@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - OneCity</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="OneCity home">
+      <img src="assets/svg/logo.svg" alt="OneCity" width="180" height="30">
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="#" class="has-arrow">Things to do <span class="arrow">&rarr;</span></a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/guides/">Guides</a></li>
+        <li><a href="book-city.html">Book City</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="search-trigger" id="searchTrigger">
+        <span>Search</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--outline" id="calendarTrigger" aria-label="Open calendar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--fill" id="burgerTrigger" aria-label="Open menu">
+        <svg width="20" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="1" x2="24" y2="1"/><line x1="0" y1="9" x2="24" y2="9"/><line x1="0" y1="17" x2="24" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-inner">
+      <button type="button" class="side-menu-close" id="sideMenuClose" aria-label="Close menu">&times;</button>
+      <ul class="side-menu-secondary">
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+        <li><a href="#sign-up">Sign up</a></li>
+      </ul>
+      <ul class="side-menu-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+      <div class="side-menu-social">
+        <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+          <svg width="20" height="16" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button type="button" class="search-overlay-close" id="searchOverlayClose" aria-label="Close search">&times;</button>
+      <h3>What&rsquo;s on in the city of London</h3>
+      <div class="search-field">
+        <input type="text" placeholder="Type search" aria-label="Search">
+        <button type="button" aria-label="Search the website">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <ul class="search-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="results-topbar results-topbar--compact">
+    <div class="results-topbar-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="accommodation.html">Stay</a>
+        <span>/</span>
+        <a href="#" id="breadcrumbHotel">Hotel</a>
+        <span>/</span>
+        <span>Payment</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="guest-checkout">
+    <div class="guest-checkout-main">
+
+      <div class="payment-step-heading">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+        <h2 class="section-title">Step 5: Reservation Card Details</h2>
+      </div>
+      <p class="guest-step-note">Your booking is safe and secure.</p>
+
+      <form class="guest-form payment-form" id="paymentForm">
+        <div class="guest-field">
+          <label for="cardName">Cardholder Name <span class="req">*</span></label>
+          <input type="text" id="cardName" required>
+        </div>
+
+        <div class="guest-form-row payment-form-row">
+          <div class="guest-field">
+            <label for="cardNumber">Card number</label>
+            <div class="payment-card-input">
+              <input type="text" id="cardNumber" inputmode="numeric" placeholder="1234 1234 1234 1234" maxlength="19" required>
+              <span class="payment-card-icons">
+                <svg viewBox="0 0 32 20" width="28" height="18"><rect width="32" height="20" rx="3" fill="#1A1F71"/><text x="16" y="14" font-size="8" fill="#fff" text-anchor="middle" font-family="Arial" font-weight="700">VISA</text></svg>
+                <svg viewBox="0 0 32 20" width="28" height="18"><rect width="32" height="20" rx="3" fill="#fff" stroke="#ddd"/><circle cx="13" cy="10" r="6" fill="#EB001B"/><circle cx="19" cy="10" r="6" fill="#F79E1B" fill-opacity="0.85"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="guest-field">
+            <label for="cardExpiry">Expiry date</label>
+            <input type="text" id="cardExpiry" placeholder="MM / YY" maxlength="7" required>
+          </div>
+          <div class="guest-field">
+            <label for="cardCvc">Security code</label>
+            <input type="text" id="cardCvc" inputmode="numeric" placeholder="CVC" maxlength="4" required>
+          </div>
+        </div>
+
+        <div class="guest-field">
+          <label for="cardCountry">Country/Territory</label>
+          <select id="cardCountry">
+            <option>United Kingdom</option>
+            <option>Ireland</option>
+            <option>United States</option>
+            <option>France</option>
+            <option>Germany</option>
+            <option>India</option>
+            <option>United Arab Emirates</option>
+            <option>Australia</option>
+          </select>
+        </div>
+
+        <p class="payment-disclaimer">By submitting this payment, you authorise Book It Please to charge your card for the booking total shown in this summary. Charges may appear as &ldquo;BIP&rdquo; on your statement.</p>
+        <p class="payment-disclaimer">By continuing you agree to our <a href="#">Terms &amp; Conditions</a> and <a href="https://onecitylondon.com/privacy/">Privacy Policy</a>.</p>
+
+        <button type="submit" class="btn btn--filled-navy payment-submit-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+          Complete Booking
+        </button>
+      </form>
+    </div>
+
+    <aside class="guest-summary">
+      <div class="guest-summary-hotel">
+        <img id="summaryImg" src="" alt="">
+        <div>
+          <h3 id="summaryName">Hotel name</h3>
+          <p id="summaryAddress">Address</p>
+        </div>
+      </div>
+
+      <div class="guest-summary-dates">
+        <div>
+          <span class="guest-summary-label">Check-in</span>
+          <p class="guest-summary-date" id="summaryCheckin">26 Aug 2026</p>
+          <span class="guest-summary-time">From 15:00</span>
+        </div>
+        <div>
+          <span class="guest-summary-label">Check-out</span>
+          <p class="guest-summary-date" id="summaryCheckout">27 Aug 2026</p>
+          <span class="guest-summary-time">Until 11:00</span>
+        </div>
+      </div>
+
+      <p class="guest-summary-stay" id="summaryStay">Stay: 1 Room, 1 Night, 2 Adults</p>
+      <p class="guest-summary-room" id="summaryRoomNames"></p>
+
+      <div class="guest-price-box">
+        <div class="guest-price-row">
+          <span>Price</span>
+          <span id="priceSubtotal">&pound;0</span>
+        </div>
+        <div class="guest-price-row">
+          <span>Taxes</span>
+          <span id="priceTaxes">&pound;0</span>
+        </div>
+        <div class="guest-price-row guest-price-row--total">
+          <span>Total Price</span>
+          <span id="priceTotal">&pound;0</span>
+        </div>
+        <p class="guest-price-incl">(Includes taxes and charges)</p>
+      </div>
+
+      <p class="guest-timer">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span class="guest-timer-text">
+          Finish your booking within<br>
+          <strong id="countdownTimer">20:00</strong> min, on the rates chosen.
+        </span>
+      </p>
+    </aside>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-newsletter">
+      <h3>Sign up to the newsletter</h3>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/cookies/">Cookies</a></li>
+        <li><a href="https://onecitylondon.com/privacy/">Privacy</a></li>
+        <li><a href="https://onecitylondon.com/sitemap/">Sitemap</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/contact-us/">Contact Us</a></li>
+        <li><a href="https://onecitylondon.com/visitor-safety-and-security/">Visitor Safety and Security</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+        <svg width="22" height="18" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-partners">
+    <a href="https://www.cityoflondon.gov.uk/" class="partner-logo partner-logo--col">
+      <img src="assets/img/partner-col.png" alt="City of London Corporation">
+    </a>
+    <a href="https://nla.london/" class="partner-logo">
+      <img src="assets/img/partner-nla.png" alt="Partner">
+    </a>
+    <a href="https://www.citypropertyassociation.com/" class="partner-logo">
+      <img src="assets/img/partner-cpa.png" alt="Partner">
+    </a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var HOTELS = {
+    'hyde-london-city': { name: 'Hyde London City', img: 'assets/img/hotel-hyde.jpg', address: '2 More London Riverside, Blackfriars, City of London, EC4R 3TE',
+      rooms: [
+        { name: '1 x Superior King Room', rates: [{ label: 'Room Only', price: 219 }, { label: 'Bed and Breakfast', price: 249 }] },
+        { name: '1 x Deluxe Double Room', rates: [{ label: 'Room Only', price: 199 }] }
+      ] },
+    'lost-property-hotel': { name: 'Lost Property Hotel', img: 'assets/img/hotel-lostproperty.jpg', address: '10 Ludgate Hill, City of London, EC4M 7AJ',
+      rooms: [ { name: '1 x Rooftop View Double', rates: [{ label: 'Room Only', price: 245 }, { label: 'Bed and Breakfast', price: 279 }] } ] },
+    'clayton-hotel-city-of-london': { name: 'Clayton Hotel City of London', img: 'assets/img/hotel-clayton.jpg', address: '82 West Smithfield, City of London, EC1A 9JS',
+      rooms: [
+        { name: '1 x Classic Double Room', rates: [{ label: 'Room Only', price: 178 }, { label: 'Bed and Breakfast', price: 205 }] },
+        { name: '1 x Executive Room', rates: [{ label: 'Room Only', price: 212 }] }
+      ] },
+    'the-chamberlain': { name: 'The Chamberlain', img: 'assets/img/hotel-chamberlain.jpg', address: '130-135 Minories, City of London, EC3N 1NU',
+      rooms: [ { name: '1 x Deluxe Double Room', rates: [{ label: 'Bed and Breakfast', price: 195 }] } ] },
+    'the-counting-house': { name: 'The Counting House', img: 'assets/img/hotel-countinghouse.jpg', address: '50 Cornhill, City of London, EC3V 3PD',
+      rooms: [ { name: '1 x Classic Room', rates: [{ label: 'Room Only', price: 232 }] } ] },
+    'doubletree-tower-of-london': { name: 'DoubleTree by Hilton – Tower of London', img: 'assets/img/hotel-doubletree.jpg', address: '7 Pepys Street, Tower Hill, City of London, EC3N 4AF',
+      rooms: [
+        { name: '1 x King Room with Thames View', rates: [{ label: 'Room Only', price: 210 }, { label: 'Bed and Breakfast', price: 238 }] },
+        { name: '1 x Twin Room', rates: [{ label: 'Room Only', price: 198 }] }
+      ] }
+  };
+
+  function toISODate(d) {
+    var y = d.getFullYear();
+    var m = String(d.getMonth() + 1).padStart(2, '0');
+    var day = String(d.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
+  function formatDate(value) {
+    var d = new Date(value + 'T00:00:00');
+    if (isNaN(d.getTime())) return '';
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+  function nightsBetween(inVal, outVal) {
+    if (!inVal || !outVal) return 1;
+    var a = new Date(inVal + 'T00:00:00');
+    var b = new Date(outVal + 'T00:00:00');
+    var diff = Math.round((b - a) / 86400000);
+    return diff > 0 ? diff : 1;
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('hotel') || 'hyde-london-city';
+  var hotel = HOTELS[slug] || HOTELS['hyde-london-city'];
+  var checkin = params.get('checkin') || '';
+  var checkout = params.get('checkout') || '';
+  var adults = params.get('adults') || '2';
+  var roomsCount = params.get('rooms') || '1';
+  var itemsParam = params.get('items') || '0-0:1';
+  var guestName = params.get('name') || '';
+  var guestEmail = params.get('email') || '';
+
+  if (!checkin || !checkout) {
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    checkin = toISODate(today);
+    checkout = toISODate(tomorrow);
+  }
+  var nights = nightsBetween(checkin, checkout);
+
+  document.title = 'Payment - ' + hotel.name + ' - OneCity';
+  document.getElementById('summaryImg').src = hotel.img;
+  document.getElementById('summaryImg').alt = hotel.name;
+  document.getElementById('summaryName').textContent = hotel.name;
+  document.getElementById('summaryAddress').textContent = hotel.address;
+  document.getElementById('breadcrumbHotel').textContent = hotel.name;
+  document.getElementById('breadcrumbHotel').href = 'hotel-detail.html?' + new URLSearchParams({ hotel: slug, checkin: checkin, checkout: checkout, adults: adults, rooms: roomsCount }).toString();
+  document.getElementById('summaryCheckin').textContent = formatDate(checkin);
+  document.getElementById('summaryCheckout').textContent = formatDate(checkout);
+  if (guestName) document.getElementById('cardName').value = guestName;
+
+  var items = itemsParam.split(',').map(function (entry) {
+    var parts = entry.split(':');
+    var ids = parts[0].split('-');
+    var roomIdx = Number(ids[0]);
+    var rateIdx = Number(ids[1]);
+    var qty = Number(parts[1]) || 1;
+    var room = hotel.rooms[roomIdx] || hotel.rooms[0];
+    var rate = room.rates[rateIdx] || room.rates[0];
+    return { room: room, rate: rate, qty: qty };
+  });
+
+  var totalRooms = items.reduce(function (sum, item) { return sum + item.qty; }, 0);
+  document.getElementById('summaryStay').textContent = 'Stay: ' + totalRooms + ' Room' + (totalRooms > 1 ? 's' : '') + ', ' + nights + ' Night' + (nights > 1 ? 's' : '') + ', ' + adults + ' Adults';
+  document.getElementById('summaryRoomNames').textContent = items.map(function (item) {
+    return item.qty > 1 ? item.room.name.replace(/^1 x /, item.qty + ' x ') : item.room.name;
+  }).join(', ');
+
+  var subtotal = items.reduce(function (sum, item) { return sum + item.rate.price * item.qty * nights; }, 0);
+  var taxes = Math.round(subtotal * 0.12);
+  var total = subtotal + taxes;
+  document.getElementById('priceSubtotal').textContent = '£' + subtotal.toLocaleString();
+  document.getElementById('priceTaxes').textContent = '£' + taxes.toLocaleString();
+  document.getElementById('priceTotal').textContent = '£' + total.toLocaleString();
+
+  var cardNumberInput = document.getElementById('cardNumber');
+  cardNumberInput.addEventListener('input', function () {
+    var digits = cardNumberInput.value.replace(/\D/g, '').slice(0, 16);
+    cardNumberInput.value = digits.replace(/(.{4})/g, '$1 ').trim();
+  });
+  var cardExpiryInput = document.getElementById('cardExpiry');
+  cardExpiryInput.addEventListener('input', function () {
+    var digits = cardExpiryInput.value.replace(/\D/g, '').slice(0, 4);
+    cardExpiryInput.value = digits.length > 2 ? digits.slice(0, 2) + ' / ' + digits.slice(2) : digits;
+  });
+  var cardCvcInput = document.getElementById('cardCvc');
+  cardCvcInput.addEventListener('input', function () {
+    cardCvcInput.value = cardCvcInput.value.replace(/\D/g, '').slice(0, 4);
+  });
+
+  document.getElementById('paymentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!this.reportValidity()) return;
+    window.open('https://www.bookitplease.com/hotels', '_blank', 'noopener');
+    var p = new URLSearchParams({
+      hotel: slug, checkin: checkin, checkout: checkout, adults: adults, rooms: roomsCount,
+      items: itemsParam, name: guestName, email: guestEmail
+    });
+    window.location.href = 'booking-confirmation.html?' + p.toString();
+  });
+
+  var timerEl = document.getElementById('countdownTimer');
+  var remaining = Number(params.get('t'));
+  if (!remaining || remaining <= 0) remaining = 20 * 60;
+  var timerId = setInterval(function () {
+    remaining -= 1;
+    if (remaining <= 0) { clearInterval(timerId); remaining = 0; }
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+    timerEl.textContent = m + ':' + String(s).padStart(2, '0');
+  }, 1000);
+})();
+</script>
+</body>
+</html>

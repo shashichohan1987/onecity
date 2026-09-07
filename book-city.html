@@ -105,34 +105,502 @@
 
 <main>
 
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <h3 class="page-hero-label">Book City</h3>
-      <p class="page-hero-text">Book. Stay. Enjoy. From sports and shows to concerts and places to stay &mdash; book everything for your visit to the City of London in one place.</p>
+  <section class="page-hero--book">
+    <div class="book-intro">
+      <h2 class="section-title section-title--center">Book It Please&hellip;</h2>
+      <p class="book-intro-text book-intro-text--on-yellow">From great-value hotels to fantastic dining, unmissable attractions and top shows &mdash; we&rsquo;ve got it all covered. Pick a category below to start booking.</p>
+
+      <div class="book-grid">
+        <a class="book-card" href="accommodation.html">
+          <img src="assets/img/book-accommodation.webp" alt="Accommodation">
+          <span class="tile-label">Accommodation <span class="arrow">&rarr;</span></span>
+        </a>
+        <a class="book-card" href="book-city.html#restaurants">
+          <img src="assets/img/discover-restaurants.jpg" alt="Restaurants">
+          <span class="tile-label">Restaurants <span class="arrow">&rarr;</span></span>
+        </a>
+        <a class="book-card" href="book-city.html#attractions">
+          <img src="assets/img/discover-hidden.jpg" alt="Attractions">
+          <span class="tile-label">Attractions <span class="arrow">&rarr;</span></span>
+        </a>
+        <a class="book-card" href="book-city.html#shows">
+          <img src="assets/img/book-shows.png" alt="Shows">
+          <span class="tile-label">Shows <span class="arrow">&rarr;</span></span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="book-intro">
-    <h2 class="section-title section-title--center">Book It Please&hellip;</h2>
-    <p class="book-intro-text">From great-value hotels to theatre tickets, and exciting sports and concert events &mdash; we&rsquo;ve got it all covered. Pick a category below to start booking.</p>
+  <section class="promo-section" id="accommodation">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title">Featured stays in the City of London</h2>
+        <p class="promo-section-text">Hand-picked hotels within walking distance of St Paul&rsquo;s, the Barbican and the Tower &mdash; ready to book with real-time availability.</p>
+      </div>
+      <a href="accommodation.html" class="btn btn--outline-navy btn--sm">View all stays <span class="arrow">&rarr;</span></a>
+    </div>
 
-    <div class="book-grid">
-      <a class="book-card" href="book-city.html#sports">
-        <img src="assets/img/book-sports.png" alt="Sports">
-        <span class="tile-label">Sports <span class="arrow">&rarr;</span></span>
+    <div class="spotlight-layout">
+      <a class="spotlight-feature" href="hotel-detail.html?hotel=hyde-london-city">
+        <div class="spotlight-feature-img">
+          <img src="assets/img/hotel-hyde.jpg" alt="Hyde London City">
+          <span class="promo-badge">Guest Favourite</span>
+        </div>
+        <div class="spotlight-feature-body">
+          <p class="promo-card-tag">Blackfriars</p>
+          <h3>Hyde London City <span class="result-card-stars">&#9733;&#9733;&#9733;&#9733;</span></h3>
+          <p class="spotlight-feature-meta">0.4 miles from City of London &middot; <span class="result-card-tag result-card-tag--ok">Free cancellation</span></p>
+          <p class="promo-card-desc">A contemporary hotel moments from the Thames, with a relaxed bar and lounge at its heart &mdash; the pick of the Square Mile this month.</p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;219</span><span class="unit">/night</span><span class="promo-card-incl">Incl. taxes &amp; charges</span></div>
+            <span class="btn btn--filled-navy btn--sm">Check availability</span>
+          </div>
+        </div>
       </a>
-      <a class="book-card" href="book-city.html#shows">
-        <img src="assets/img/book-shows.png" alt="Shows">
-        <span class="tile-label">Shows <span class="arrow">&rarr;</span></span>
+
+      <div class="spotlight-list">
+        <a class="spotlight-list-item" href="hotel-detail.html?hotel=doubletree-tower-of-london">
+          <img src="assets/img/hotel-doubletree.jpg" alt="DoubleTree by Hilton – Tower of London">
+          <div class="spotlight-list-body">
+            <p class="promo-card-tag">Tower Hill <span class="spotlight-list-badge">Best Rated</span></p>
+            <h4>DoubleTree by Hilton &ndash; Tower of London <span class="result-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></h4>
+            <p class="spotlight-list-meta">0.7 miles from City of London &middot; <span class="result-card-tag result-card-tag--ok">Free cancellation</span></p>
+            <p class="spotlight-list-price">From &pound;210<span>/night</span></p>
+          </div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="spotlight-list-item" href="hotel-detail.html?hotel=clayton-hotel-city-of-london">
+          <img src="assets/img/hotel-clayton.jpg" alt="Clayton Hotel City of London">
+          <div class="spotlight-list-body">
+            <p class="promo-card-tag">Aldgate <span class="spotlight-list-badge">Great Value</span></p>
+            <h4>Clayton Hotel City of London <span class="result-card-stars">&#9733;&#9733;&#9733;&#9733;</span></h4>
+            <p class="spotlight-list-meta">0.6 miles from City of London &middot; <span class="result-card-tag result-card-tag--ok">Free cancellation</span></p>
+            <p class="spotlight-list-price">From &pound;178<span>/night</span></p>
+          </div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="spotlight-list-item" href="hotel-detail.html?hotel=the-counting-house">
+          <img src="assets/img/hotel-countinghouse.jpg" alt="The Counting House">
+          <div class="spotlight-list-body">
+            <p class="promo-card-tag">Cornhill <span class="spotlight-list-badge">Central Location</span></p>
+            <h4>The Counting House <span class="result-card-stars">&#9733;&#9733;&#9733;</span></h4>
+            <p class="spotlight-list-meta">0.2 miles from City of London &middot; <span class="result-card-tag result-card-tag--warn">Non-refundable</span></p>
+            <p class="spotlight-list-price">From &pound;232<span>/night</span></p>
+          </div>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="spotlight-list-item" href="hotel-detail.html?hotel=lost-property-hotel">
+          <img src="assets/img/hotel-lostproperty.jpg" alt="Lost Property Hotel">
+          <div class="spotlight-list-body">
+            <p class="promo-card-tag">Ludgate Hill <span class="spotlight-list-badge">Rooftop Bar</span></p>
+            <h4>Lost Property Hotel <span class="result-card-stars">&#9733;&#9733;&#9733;&#9733;</span></h4>
+            <p class="spotlight-list-meta">0.3 miles from City of London &middot; <span class="result-card-tag result-card-tag--ok">Free cancellation</span></p>
+            <p class="spotlight-list-price">From &pound;245<span>/night</span></p>
+          </div>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-section highlights-section" id="things-to-do">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title section-title--on-navy">Things to do in the City of London</h2>
+        <p class="promo-section-text promo-section-text--on-navy">From rooftop bars to iconic landmarks and hidden gems &mdash; discover the best experiences the Square Mile has to offer.</p>
+      </div>
+      <a href="https://onecitylondon.com/experience/" class="btn btn--outline-white btn--sm">Explore things to do <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <div class="tile-scroll tile-scroll--cards tile-scroll--bleed" id="highlightsScroll">
+      <a class="highlight-card" href="hotel-detail.html?hotel=hyde-london-city">
+        <img src="assets/img/hotel-hyde.jpg" alt="Hyde London City">
+        <span class="highlight-card-badge">Boutique Stay</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Stay &middot; Blackfriars</p>
+          <h3>Hyde London City</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-7.58 7-12a7 7 0 0 0-14 0c0 4.42 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            0.4 miles from City of London
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="from">From</span><span class="amount">&pound;219</span><span class="unit">/night</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Check availability</span>
+          </div>
+        </div>
       </a>
-      <a class="book-card" href="accommodation.html">
-        <img src="assets/img/book-accommodation.webp" alt="Accommodation">
-        <span class="tile-label">Accommodation <span class="arrow">&rarr;</span></span>
+      <a class="highlight-card" href="book-city.html#restaurants">
+        <img src="assets/img/guide-rooftop.jpg" alt="Duck &amp; Waffle">
+        <span class="highlight-card-badge">Rooftop Views</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Dine &middot; Bishopsgate</p>
+          <h3>Duck &amp; Waffle</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Open 24 hours
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="from">From</span><span class="amount">&pound;45</span><span class="unit">pp</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Reserve a table</span>
+          </div>
+        </div>
       </a>
-      <a class="book-card" href="book-city.html#concerts">
-        <img src="assets/img/book-concerts.webp" alt="Concerts">
-        <span class="tile-label">Concerts <span class="arrow">&rarr;</span></span>
+      <a class="highlight-card" href="book-city.html#attractions">
+        <img src="assets/img/discover-views.jpg" alt="Sky Garden">
+        <span class="highlight-card-badge">Free Entry</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Attraction &middot; Fenchurch Street</p>
+          <h3>Sky Garden</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Booking required
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="amount">Free</span><span class="unit">entry</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Reserve a slot</span>
+          </div>
+        </div>
       </a>
+      <a class="highlight-card" href="book-city.html#shows">
+        <img src="assets/img/book-shows.png" alt="Barbican Centre">
+        <span class="highlight-card-badge">Iconic Venue</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Show &middot; Barbican</p>
+          <h3>Barbican Centre</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Multiple dates this week
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="from">From</span><span class="amount">&pound;20</span><span class="unit">pp</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+      <a class="highlight-card" href="https://onecitylondon.com/after-work/">
+        <img src="assets/img/cat-after-work.jpg" alt="Leadenhall Market bars">
+        <span class="highlight-card-badge">Local Favourite</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">After Work &middot; Leadenhall</p>
+          <h3>Leadenhall Market Bars</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Best on weekday evenings
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="from">From</span><span class="amount">&pound;6</span><span class="unit">a drink</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Find a bar</span>
+          </div>
+        </div>
+      </a>
+      <a class="highlight-card" href="https://onecitylondon.com/shop/">
+        <img src="assets/img/cat-shopping.jpg" alt="Leadenhall Market shopping">
+        <span class="highlight-card-badge">Hidden Gem</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Shopping &middot; Leadenhall Market</p>
+          <h3>Leadenhall Market</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Open daily
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="amount">Free</span><span class="unit">entry</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Explore market</span>
+          </div>
+        </div>
+      </a>
+      <a class="highlight-card" href="https://onecitylondon.com/wellbeing/">
+        <img src="assets/img/cat-wellbeing.jpg" alt="City of London spa">
+        <span class="highlight-card-badge">Relax &amp; Unwind</span>
+        <div class="highlight-card-body">
+          <p class="highlight-card-cat">Wellbeing &middot; Bank</p>
+          <h3>City Spa Retreats</h3>
+          <p class="highlight-card-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Open 7 days a week
+          </p>
+          <div class="promo-card-footer">
+            <div class="highlight-card-price"><span class="from">From</span><span class="amount">&pound;45</span><span class="unit">pp</span></div>
+            <span class="btn btn--filled-yellow btn--sm">Book a treatment</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="scroll-controls">
+      <button type="button" class="scroll-btn" data-target="highlightsScroll" data-dir="-1" aria-label="Scroll left">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="40" y1="8" x2="1" y2="8"/><polyline points="9,1 1,8 9,15"/></svg>
+      </button>
+      <button type="button" class="scroll-btn" data-target="highlightsScroll" data-dir="1" aria-label="Scroll right">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="8" x2="39" y2="8"/><polyline points="31,1 39,8 31,15"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="promo-section promo-section--cream" id="restaurants">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title">Where to eat in the City of London</h2>
+        <p class="promo-section-text">From rooftop dining to historic brasseries, book a table at the Square Mile&rsquo;s most talked-about restaurants.</p>
+      </div>
+      <a href="https://onecitylondon.com/eat-and-drink/" class="btn btn--outline-navy btn--sm">View all restaurants <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <div class="cuisine-pills">
+      <span class="cuisine-pill cuisine-pill--active">All cuisines</span>
+      <span class="cuisine-pill">British</span>
+      <span class="cuisine-pill">Japanese-Brazilian</span>
+      <span class="cuisine-pill">Brasserie &amp; Bar</span>
+      <span class="cuisine-pill">Rooftop</span>
+    </div>
+
+    <div class="bento-grid">
+      <a class="bento-card bento-card--lg" href="book-city.html#restaurants">
+        <img src="assets/img/guide-rooftop.jpg" alt="Duck &amp; Waffle">
+        <span class="promo-badge">Rooftop Views</span>
+        <div class="bento-card-body">
+          <p class="promo-card-tag">Bishopsgate &middot; British</p>
+          <h3>Duck &amp; Waffle</h3>
+          <p class="promo-card-desc">40 floors up with panoramic City views &mdash; open around the clock for brunch, dinner and everything between.</p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;45</span><span class="unit">pp</span></div>
+            <span class="btn btn--filled-navy btn--sm">Reserve a table</span>
+          </div>
+        </div>
+      </a>
+      <a class="bento-card" href="book-city.html#restaurants">
+        <img src="assets/img/discover-restaurants.jpg" alt="Sushisamba London">
+        <span class="promo-badge">Popular Pick</span>
+        <div class="bento-card-body">
+          <p class="promo-card-tag">Heron Tower &middot; Japanese-Brazilian</p>
+          <h4>Sushisamba London</h4>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;55</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Reserve</span>
+          </div>
+        </div>
+      </a>
+      <a class="bento-card" href="book-city.html#restaurants">
+        <img src="assets/img/cat-food-drink.jpg" alt="The Ned">
+        <span class="promo-badge">Editor&rsquo;s Choice</span>
+        <div class="bento-card-body">
+          <p class="promo-card-tag">Poultry &middot; Brasserie &amp; Bar</p>
+          <h4>The Ned</h4>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;40</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Reserve</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="promo-section" id="shows">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title">Shows &amp; events in the City of London</h2>
+        <p class="promo-section-text">Theatre, live music and gallery openings across the Square Mile&rsquo;s own stages &mdash; book ahead for the best seats.</p>
+      </div>
+      <a href="https://onecitylondon.com/whats-on/" class="btn btn--outline-navy btn--sm">View all shows <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <div class="tile-scroll tile-scroll--cards tile-scroll--bleed" id="showsScroll">
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/book-shows.png" alt="Barbican Centre">
+        <span class="show-card-badge">Iconic Venue</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">Barbican &middot; Theatre &amp; Concerts</p>
+          <h3>Barbican Centre</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Multiple dates this week
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;20</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/cat-arts-culture.jpg" alt="LSO St Luke's">
+        <span class="show-card-badge">Live Music</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">Old Street &middot; Classical &amp; Contemporary</p>
+          <h3>LSO St Luke&rsquo;s</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Next concert: Friday 7:30pm
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;15</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/guide-art.jpg" alt="Guildhall School of Music &amp; Drama">
+        <span class="show-card-badge">Rising Talent</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">Barbican &middot; Student &amp; Guest Performances</p>
+          <h3>Guildhall School of Music &amp; Drama</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Nightly performances
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;12</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/guide-evening.jpg" alt="Milton Court Concert Hall">
+        <span class="show-card-badge">Intimate Setting</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">Barbican &middot; Recitals &amp; Chamber Music</p>
+          <h3>Milton Court Concert Hall</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            This weekend only
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;18</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/guide-walks.jpg" alt="St Paul's Cathedral Choral Evensong">
+        <span class="show-card-badge">Free to Attend</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">St Paul&rsquo;s &middot; Choral Evensong</p>
+          <h3>St Paul&rsquo;s Cathedral</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Daily at 5pm
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">Entry</span><span class="amount">Free</span></div>
+            <span class="btn btn--outline-white btn--sm">Plan your visit</span>
+          </div>
+        </div>
+      </a>
+      <a class="show-card" href="book-city.html#shows">
+        <img src="assets/img/guide-friday.jpg" alt="Leadenhall Market Live Sessions">
+        <span class="show-card-badge">Local Favourite</span>
+        <div class="show-card-body">
+          <p class="show-card-tag">Leadenhall Market &middot; Live Sessions</p>
+          <h3>Leadenhall Market Live</h3>
+          <p class="show-card-dates">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Every Thursday
+          </p>
+          <div class="promo-card-footer">
+            <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;10</span><span class="unit">pp</span></div>
+            <span class="btn btn--outline-white btn--sm">Book tickets</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="scroll-controls">
+      <button type="button" class="scroll-btn" data-target="showsScroll" data-dir="-1" aria-label="Scroll left">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="40" y1="8" x2="1" y2="8"/><polyline points="9,1 1,8 9,15"/></svg>
+      </button>
+      <button type="button" class="scroll-btn" data-target="showsScroll" data-dir="1" aria-label="Scroll right">
+        <svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="8" x2="39" y2="8"/><polyline points="31,1 39,8 31,15"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="promo-section promo-section--cream" id="attractions">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title">Must-see attractions in the City of London</h2>
+        <p class="promo-section-text">Skip the queue at the Square Mile&rsquo;s biggest landmarks &mdash; book tickets ahead and save time on the day.</p>
+      </div>
+      <a href="https://onecitylondon.com/attractions-in-city-of-london/" class="btn btn--outline-navy btn--sm">View all attractions <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <div class="attraction-grid">
+      <div class="attraction-col">
+        <a class="attraction-tile" href="book-city.html#attractions">
+          <img src="assets/img/cat-landmarks.png" alt="St Paul's Cathedral">
+          <span class="attraction-pill">Iconic Landmark</span>
+          <span class="attraction-tile-title">St Paul&rsquo;s Cathedral</span>
+        </a>
+        <div class="attraction-caption">
+          <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;25</span><span class="unit">pp</span></div>
+          <a href="book-city.html#attractions" class="btn btn--outline-navy btn--sm">Book tickets</a>
+        </div>
+      </div>
+      <div class="attraction-col">
+        <a class="attraction-tile" href="book-city.html#attractions">
+          <img src="assets/img/discover-history.jpg" alt="Tower of London">
+          <span class="attraction-pill">Bestseller</span>
+          <span class="attraction-tile-title">Tower of London</span>
+        </a>
+        <div class="attraction-caption">
+          <div class="promo-card-price"><span class="from">From</span><span class="amount">&pound;34.80</span><span class="unit">pp</span></div>
+          <a href="book-city.html#attractions" class="btn btn--outline-navy btn--sm">Book tickets</a>
+        </div>
+      </div>
+      <div class="attraction-col">
+        <a class="attraction-tile" href="book-city.html#attractions">
+          <img src="assets/img/discover-views.jpg" alt="Sky Garden">
+          <span class="attraction-pill">Free Entry</span>
+          <span class="attraction-tile-title">Sky Garden</span>
+        </a>
+        <div class="attraction-caption">
+          <div class="promo-card-price"><span class="from">Entry</span><span class="amount">Free</span></div>
+          <a href="book-city.html#attractions" class="btn btn--outline-navy btn--sm">Reserve a slot</a>
+        </div>
+      </div>
+      <div class="attraction-col">
+        <a class="attraction-tile" href="book-city.html#attractions">
+          <img src="assets/img/discover-artlovers.jpg" alt="Sculpture in the City">
+          <span class="attraction-pill">Hidden Gem</span>
+          <span class="attraction-tile-title">Sculpture in the City</span>
+        </a>
+        <div class="attraction-caption">
+          <div class="promo-card-price"><span class="from">Entry</span><span class="amount">Free</span></div>
+          <a href="book-city.html#attractions" class="btn btn--outline-navy btn--sm">View trail map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h2 class="section-title">Frequently asked questions</h2>
+        <p class="promo-section-text">Everything you need to know about booking stays, tables, tickets and offers in the City of London.</p>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>How do I book a hotel, restaurant, attraction or show?</summary>
+        <p>Pick a category from the Book It Please&hellip; tiles above, or jump straight to a section &mdash; Stays, Restaurants, Attractions or Shows. Each listing links through to real-time availability so you can complete your booking in a few clicks.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the Things to do carousel updated regularly?</summary>
+        <p>Yes &mdash; the highlights across stays, dining, attractions, shows and more are refreshed regularly, so it&rsquo;s worth checking back if you&rsquo;re planning a visit. You can also see the full list on our <a href="https://onecitylondon.com/experience/">Experiences</a> page.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I cancel or change a hotel booking?</summary>
+        <p>Cancellation policies vary by hotel and rate &mdash; look for the &ldquo;Free cancellation&rdquo; or &ldquo;Non-refundable&rdquo; tag on each listing before you book. Once booked, changes and cancellations are managed from your confirmation email.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to book restaurant tables in advance?</summary>
+        <p>We&rsquo;d recommend it, especially for popular spots like Duck &amp; Waffle and Sushisamba London or around lunchtime and weekends. Reserving ahead guarantees your table at the listed price.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are attraction tickets valid on any date?</summary>
+        <p>Most attraction tickets are date-flexible unless stated otherwise, but time-slot attractions such as Sky Garden require you to reserve a specific slot in advance. Check the ticket details at checkout for each venue.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Who do I contact if I have a problem with my booking?</summary>
+        <p>Your confirmation email includes the details of the operator or venue handling your booking. For general questions about Book City, visit our <a href="https://onecitylondon.com/contact-us/">Contact Us</a> page.</p>
+      </details>
     </div>
   </section>
 

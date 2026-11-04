@@ -63,7 +63,9 @@
     { name: 'Guildhall School of Music &amp; Drama', img: 'assets/img/guide-art.jpg', tag: 'Barbican', href: 'book-city.html#shows', lat: 51.5196, lng: -0.0905 },
     { name: 'Milton Court Concert Hall', img: 'assets/img/guide-evening.jpg', tag: 'Silk Street', href: 'book-city.html#shows', lat: 51.5213, lng: -0.0885 },
     { name: 'St Paul&rsquo;s Cathedral', img: 'assets/img/guide-walks.jpg', tag: 'St Paul&rsquo;s Churchyard', href: 'book-city.html#shows', lat: 51.5138, lng: -0.0984 },
-    { name: 'Tower of London', img: 'assets/img/cat-landmarks.png', tag: 'Tower Hill &middot; Historic palace &amp; fortress', href: 'book-city.html#attractions', lat: 51.50806, lng: -0.07594 },
+    // Tower of London photo: "Tower of London viewed from the River Thames" by Bob Collowan, CC BY-SA 3.0,
+    // https://commons.wikimedia.org/wiki/File:Tower_of_London_viewed_from_the_River_Thames.jpg
+    { name: 'Tower of London', img: 'assets/img/attraction-tower-of-london.jpg', credit: 'Photo: Bob Collowan / CC BY-SA 3.0', tag: 'Tower Hill &middot; Historic palace &amp; fortress', href: 'book-city.html#attractions', lat: 51.50806, lng: -0.07594 },
     { name: 'Leadenhall Market Live', img: 'assets/img/guide-friday.jpg', tag: 'Gracechurch Street', href: 'book-city.html#shows', lat: 51.5127, lng: -0.0836 }
   ];
 

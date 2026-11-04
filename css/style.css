@@ -2987,3 +2987,4 @@ body.map-view-open { overflow: hidden; }
 .map-item-icon--toilets { width: 56px; height: 56px; }
 .map-item-icon--toilets svg { width: 26px; height: 26px; }
 .map-popup--compact .map-popup-body { padding: 12px 14px; }
+.map-popup-credit { font-size: 10px; color: rgba(10, 45, 80, 0.45); margin-top: 2px; }

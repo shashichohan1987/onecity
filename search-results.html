@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
-<link rel="stylesheet" href="css/style.css?v=15">
+<link rel="stylesheet" href="css/style.css?v=16">
 </head>
 <body>
 
@@ -345,7 +345,7 @@
 <script src="js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
-<script src="js/city-map.js?v=9"></script>
+<script src="js/city-map.js?v=10"></script>
 <script>
 (function () {
   var HOTELS = CityMap.HOTELS;
@@ -543,7 +543,8 @@
     return '<a class="map-popup" href="' + item.href + '">' +
       '<img src="' + item.img + '" alt="">' +
       '<span class="map-popup-body"><strong>' + item.name + '</strong><span class="map-popup-meta">' + item.tag + '</span>' +
-      '<span class="map-popup-cta">View details &rarr;</span></span></a>';
+      '<span class="map-popup-cta">View details &rarr;</span>' +
+      (item.credit ? '<span class="map-popup-credit">' + item.credit + '</span>' : '') + '</span></a>';
   }
 
   function render(fit) {

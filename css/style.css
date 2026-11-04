@@ -2988,3 +2988,31 @@ body.map-view-open { overflow: hidden; }
 .map-item-icon--toilets svg { width: 26px; height: 26px; }
 .map-popup--compact .map-popup-body { padding: 12px 14px; }
 .map-popup-credit { font-size: 10px; color: rgba(10, 45, 80, 0.45); margin-top: 2px; }
+
+/* Transport & venues tabs */
+.map-pin--transport svg { background: #DC241F; }
+.map-pin--venues svg { background: #0E7490; }
+.map-tab[data-cat="transport"] .map-tab-icon { background: #DC241F; }
+.map-tab[data-cat="venues"] .map-tab-icon { background: #0E7490; }
+.map-item-icon--transport, .map-item-icon--venues { width: 56px; height: 56px; }
+.map-item-icon--transport svg, .map-item-icon--venues svg { width: 26px; height: 26px; }
+.map-item-icon--transport { background: #FDECEC; color: #DC241F; }
+.map-item-icon--venues { background: #E6F4F7; color: #0E7490; }
+
+.map-kinds { display: flex; gap: 6px; padding: 0 20px 12px; }
+.map-kinds[hidden] { display: none; }
+.map-kind {
+  flex: 1 1 auto;
+  padding: 6px 8px;
+  border: 1.5px solid rgba(10, 45, 80, 0.2);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  font-weight: 600;
+  cursor: pointer;
+}
+.map-kind:hover { border-color: var(--navy); }
+.map-kind.is-active { background: var(--navy); border-color: var(--navy); color: var(--white); }

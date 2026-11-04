@@ -90,6 +90,163 @@
     { name: 'Public toilet', tag: 'Near Bishopsgate', fee: 'Free', accessible: false, babyChange: false, hours: '', lat: 51.518, lng: -0.07974, osm: 'way/837408790' }
   ];
 
+  // Transport: tube stations in and around the City, bus stops inside the boundary (OpenStreetMap / NaPTAN, Nov 2026),
+  // London airports and Eurostar. "kind" drives the sub-filter chips on the Transport tab.
+  var TRANSPORT = [
+    { kind: 'tube', name: 'Bank', tag: 'Central &middot; Northern &middot; Waterloo &amp; City &middot; DLR', lat: 51.5131, lng: -0.08937, osm: 'node/1637578440' },
+    { kind: 'tube', name: 'Monument', tag: 'District &middot; Circle (linked to Bank)', lat: 51.51063, lng: -0.08613, osm: 'node/3076574237' },
+    { kind: 'tube', name: 'Mansion House', tag: 'District &middot; Circle', lat: 51.51189, lng: -0.09522, osm: 'node/18395696' },
+    { kind: 'tube', name: 'Cannon Street', tag: 'District &middot; Circle &middot; National Rail', lat: 51.51138, lng: -0.09036, osm: 'node/3637449659' },
+    { kind: 'tube', name: 'St Paul&rsquo;s', tag: 'Central', lat: 51.51491, lng: -0.09759, osm: 'node/5475675298' },
+    { kind: 'tube', name: 'Blackfriars', tag: 'District &middot; Circle &middot; Thameslink', lat: 51.51159, lng: -0.10377, osm: 'node/3763522921' },
+    { kind: 'tube', name: 'Liverpool Street', tag: 'Central &middot; Circle &middot; Metropolitan &middot; H&amp;C &middot; Elizabeth line', lat: 51.51768, lng: -0.08252, osm: 'node/3637436407' },
+    { kind: 'tube', name: 'Moorgate', tag: 'Northern &middot; Circle &middot; Metropolitan &middot; H&amp;C &middot; Elizabeth line', lat: 51.51825, lng: -0.08906, osm: 'node/5702714876' },
+    { kind: 'tube', name: 'Barbican', tag: 'Circle &middot; Metropolitan &middot; Hammersmith &amp; City', lat: 51.52018, lng: -0.09863, osm: 'node/3076573910' },
+    { kind: 'tube', name: 'Aldgate', tag: 'Circle &middot; Metropolitan', lat: 51.51425, lng: -0.07572, osm: 'node/3788735981' },
+    { kind: 'tube', name: 'Tower Hill', tag: 'District &middot; Circle', lat: 51.50985, lng: -0.0767, osm: 'node/6260922569' },
+    { kind: 'tube', name: 'Aldgate East', tag: 'District &middot; Hammersmith &amp; City', lat: 51.51562, lng: -0.07084, osm: 'node/4984999298' },
+    { kind: 'tube', name: 'Temple', tag: 'District &middot; Circle', lat: 51.51097, lng: -0.11433, osm: 'node/6368951709' },
+    { kind: 'tube', name: 'Chancery Lane', tag: 'Central', lat: 51.51817, lng: -0.11176, osm: 'node/3076573915' },
+    { kind: 'tube', name: 'Farringdon', tag: 'Circle &middot; Metropolitan &middot; H&amp;C &middot; Elizabeth line &middot; Thameslink', lat: 51.51996, lng: -0.10455, osm: 'node/3284103165' },
+    { kind: 'tube', name: 'London Bridge', tag: 'Jubilee &middot; Northern &middot; National Rail', lat: 51.50541, lng: -0.0887, osm: 'node/5182456569' },
+    { kind: 'tube', name: 'Old Street', tag: 'Northern &middot; National Rail', lat: 51.52563, lng: -0.08761, osm: 'node/70804547' },
+    { kind: 'bus', name: 'Aldgate Bus Station', tag: 'Stop L &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51387, lng: -0.07534, osm: 'node/3231501610' },
+    { kind: 'bus', name: 'Aldgate Station', tag: '', facts: 'Shelter &middot; Seating', lat: 51.51353, lng: -0.07522, osm: 'node/6548782931' },
+    { kind: 'bus', name: 'Aldgate Station', tag: 'Stop D', facts: 'Shelter', lat: 51.51429, lng: -0.07481, osm: 'node/3855607515' },
+    { kind: 'bus', name: 'Aldgate Station', tag: 'Stop R &middot; Aldgate High Street &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51415, lng: -0.07476, osm: 'node/469759897' },
+    { kind: 'bus', name: 'All Hallows Church', tag: 'Stop U', facts: '', lat: 51.51669, lng: -0.08485, osm: 'node/1594065358' },
+    { kind: 'bus', name: 'Apothecary Street', tag: 'Stop K &middot; New Bridge Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.5135, lng: -0.10414, osm: 'node/469759971' },
+    { kind: 'bus', name: 'Baltic Street West', tag: 'Stop BP &middot; Goswell Road &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.52221, lng: -0.0974, osm: 'node/2118706166' },
+    { kind: 'bus', name: 'Bank Station / Cornhill', tag: 'Stop D &middot; eastbound', facts: '', lat: 51.51336, lng: -0.08746, osm: 'node/469759939' },
+    { kind: 'bus', name: 'Bank Station / Cornhill', tag: 'Stop E &middot; westbound', facts: '', lat: 51.51328, lng: -0.08761, osm: 'node/469759940' },
+    { kind: 'bus', name: 'Bank Station / King William Street', tag: 'Stop F &middot; north-east', facts: '', lat: 51.51223, lng: -0.08802, osm: 'node/469759941' },
+    { kind: 'bus', name: 'Bank Station / Poultry', tag: 'Stop K &middot; Cheapside &middot; eastbound', facts: '', lat: 51.51376, lng: -0.09161, osm: 'node/469771225' },
+    { kind: 'bus', name: 'Bank Station / Princes Street', tag: 'Stop A &middot; Princes Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51425, lng: -0.08962, osm: 'node/469777308' },
+    { kind: 'bus', name: 'Bank Station / Princes Street', tag: 'Stop B &middot; Princes Street &middot; southbound', facts: '', lat: 51.51401, lng: -0.08926, osm: 'node/469777309' },
+    { kind: 'bus', name: 'Barbican Station', tag: 'Stop BA &middot; Aldersgate Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.52046, lng: -0.09757, osm: 'node/4703542478' },
+    { kind: 'bus', name: 'Barbican Station', tag: 'Stop BB &middot; Aldersgate Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.52087, lng: -0.09732, osm: 'node/4703542479' },
+    { kind: 'bus', name: 'Beech Street', tag: 'Stop BN &middot; Beech Street &middot; eastbound', facts: 'Shelter', lat: 51.52077, lng: -0.09417, osm: 'node/469764402' },
+    { kind: 'bus', name: 'Bishopsgate', tag: 'Stop N &middot; Camomile Street &middot; northbound', facts: '', lat: 51.51591, lng: -0.08117, osm: 'node/469765562' },
+    { kind: 'bus', name: 'Bishopsgate', tag: 'Stop R &middot; Cornhill &middot; eastbound', facts: '', lat: 51.51345, lng: -0.08499, osm: 'node/469786574' },
+    { kind: 'bus', name: 'Blackfriars Station', tag: 'Stop A &middot; eastbound', facts: '', lat: 51.51222, lng: -0.10252, osm: 'node/469759968' },
+    { kind: 'bus', name: 'Blackfriars Station', tag: 'Stop B &middot; Queen Victoria Street &middot; westbound', facts: '', lat: 51.51201, lng: -0.10275, osm: 'node/469759969' },
+    { kind: 'bus', name: 'Blackfriars Station / North Entrance', tag: 'Stop J &middot; --- &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51239, lng: -0.10428, osm: 'node/469759970' },
+    { kind: 'bus', name: 'Blackfriars Station / North Entrance', tag: 'Stop L &middot; southbound', facts: '', lat: 51.51066, lng: -0.10417, osm: 'node/317316891' },
+    { kind: 'bus', name: 'Blackfriars Station / South Entrance', tag: 'Stop C &middot; Blackfriars Bridge &middot; northbound', facts: '', lat: 51.50883, lng: -0.10451, osm: 'node/469785734' },
+    { kind: 'bus', name: 'Blackfriars Station / South Entrance', tag: 'Stop D &middot; Blackfriars Bridge &middot; southbound', facts: 'Shelter', lat: 51.50843, lng: -0.10428, osm: 'node/469785737' },
+    { kind: 'bus', name: 'Bread Street', tag: 'Stop SN &middot; Cheapside &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.5142, lng: -0.09498, osm: 'node/469786650' },
+    { kind: 'bus', name: 'Camomile Street', tag: 'Stop W &middot; Bishopsgate &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51583, lng: -0.08212, osm: 'node/469765563' },
+    { kind: 'bus', name: 'Camomile Street', tag: 'Stop Y &middot; Bishopsgate &middot; southbound', facts: 'Shelter', lat: 51.51546, lng: -0.08223, osm: 'node/4827019219' },
+    { kind: 'bus', name: 'Cannon Street Station', tag: 'Stop 47 &middot; eastbound', facts: '', lat: 51.5104, lng: -0.09015, osm: 'node/469765319' },
+    { kind: 'bus', name: 'Cannon Street Station', tag: 'Stop MA &middot; westbound', facts: '', lat: 51.5113, lng: -0.08902, osm: 'node/469781056' },
+    { kind: 'bus', name: 'Cannon Street Station', tag: 'Stop MB &middot; eastbound', facts: '', lat: 51.51184, lng: -0.09112, osm: 'node/469781057' },
+    { kind: 'bus', name: 'Chancery Lane', tag: 'Fleet Street &middot; westbound', facts: '', lat: 51.51386, lng: -0.11043, osm: 'node/469786564' },
+    { kind: 'bus', name: 'Chancery Lane Station', tag: 'Stop F &middot; High Holborn &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.5182, lng: -0.11223, osm: 'node/469781068' },
+    { kind: 'bus', name: 'City Thameslink Station', tag: 'Holborn Viaduct &middot; westbound', facts: 'Seating', lat: 51.51639, lng: -0.10252, osm: 'node/6124650605' },
+    { kind: 'bus', name: 'City Thameslink Station', tag: 'Stop HK &middot; Holborn Viaduct &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.5165, lng: -0.10289, osm: 'node/469761894' },
+    { kind: 'bus', name: 'City Thameslink Station', tag: 'Stop HL &middot; Holborn Viaduct &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51693, lng: -0.10369, osm: 'node/469761891' },
+    { kind: 'bus', name: 'City Thameslink Station / Ludgate Circus', tag: 'Stop F &middot; Ludgate Hill &middot; northbound', facts: '', lat: 51.51409, lng: -0.10358, osm: 'node/3650157681' },
+    { kind: 'bus', name: 'Duke&rsquo;s Place', tag: 'Stop A &middot; Duke&rsquo;s Place &middot; northbound', facts: '', lat: 51.51459, lng: -0.07859, osm: 'node/469767991' },
+    { kind: 'bus', name: 'Eldon Street', tag: 'Stop V &middot; Eldon Street &middot; eastbound', facts: '', lat: 51.51861, lng: -0.0855, osm: 'node/469786703' },
+    { kind: 'bus', name: 'Fenchurch Street', tag: 'Stop M &middot; Gracechurch Street &middot; northbound', facts: '', lat: 51.51225, lng: -0.08498, osm: 'node/469760420' },
+    { kind: 'bus', name: 'Fenchurch Street', tag: 'Stop U &middot; Gracechurch Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51135, lng: -0.08539, osm: 'node/469760422' },
+    { kind: 'bus', name: 'Fetter Lane', tag: 'Fleet Street &middot; eastbound', facts: '', lat: 51.51422, lng: -0.10873, osm: 'node/469768911' },
+    { kind: 'bus', name: 'Fetter Lane', tag: 'Fleet Street &middot; westbound', facts: '', lat: 51.51415, lng: -0.10832, osm: 'node/469768912' },
+    { kind: 'bus', name: 'Fleet Street / City Thameslink', tag: 'Stop L &middot; Farringdon Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51489, lng: -0.10436, osm: 'node/469781023' },
+    { kind: 'bus', name: 'Fleet Street / City Thameslink', tag: 'Stop M &middot; Farringdon Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51527, lng: -0.10468, osm: 'node/21687803' },
+    { kind: 'bus', name: 'Gracechurch Street / Monument Station', tag: 'Stop T &middot; Gracechurch Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51137, lng: -0.08558, osm: 'node/469760421' },
+    { kind: 'bus', name: 'Great Swan Alley', tag: 'Moorgate &middot; northbound', facts: '', lat: 51.51599, lng: -0.08912, osm: 'node/469770105' },
+    { kind: 'bus', name: 'Great Tower Street', tag: 'Stop TT &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.50995, lng: -0.0815, osm: 'node/469770109' },
+    { kind: 'bus', name: 'Great Tower Street', tag: 'Stop TU &middot; northbound', facts: '', lat: 51.50993, lng: -0.08117, osm: 'node/469770107' },
+    { kind: 'bus', name: 'Holborn Circus', tag: '', facts: '', lat: 51.51803, lng: -0.10674, osm: 'node/6108171364' },
+    { kind: 'bus', name: 'Holborn Circus', tag: 'Stop K &middot; Holborn Viaduct &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51757, lng: -0.106, osm: 'node/469771426' },
+    { kind: 'bus', name: 'Holborn Circus', tag: 'Stop L &middot; Holborn Viaduct &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51752, lng: -0.10653, osm: 'node/469786587' },
+    { kind: 'bus', name: 'Holborn Circus / Fetter Lane', tag: 'Stop G &middot; Holborn &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51775, lng: -0.10875, osm: 'node/469771412' },
+    { kind: 'bus', name: 'Holborn Circus / Fetter Lane', tag: 'Stop H &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51782, lng: -0.10938, osm: 'node/469771417' },
+    { kind: 'bus', name: 'Houndsditch', tag: 'Stop M &middot; Houndsditch &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51603, lng: -0.07971, osm: 'node/469772121' },
+    { kind: 'bus', name: 'King Edward Street', tag: 'Stop ST &middot; Newgate Street &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51577, lng: -0.0999, osm: 'node/469761239' },
+    { kind: 'bus', name: 'King Edward Street / St Paul&rsquo;s Station', tag: 'Stop SX &middot; King Edward Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51656, lng: -0.09863, osm: 'node/469773003' },
+    { kind: 'bus', name: 'King William Street / Monument Station', tag: 'Stop G &middot; King William Street &middot; southbound', facts: '', lat: 51.51141, lng: -0.08714, osm: 'node/469760418' },
+    { kind: 'bus', name: 'Little Britain', tag: 'Stop SV', facts: '', lat: 51.51763, lng: -0.09803, osm: 'node/3625307789' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: '', facts: '', lat: 51.51802, lng: -0.0828, osm: 'node/5091608014' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop A &middot; Sun Street Passage &middot; southbound', facts: '', lat: 51.51788, lng: -0.08269, osm: 'node/469760984' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop B &middot; Sun Street Passage &middot; southbound', facts: '', lat: 51.51804, lng: -0.0826, osm: 'node/469760985' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop C &middot; Sun Street Passage &middot; southbound', facts: '', lat: 51.51813, lng: -0.08255, osm: 'node/469760986' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop D &middot; Sun Street Passage &middot; southbound', facts: '', lat: 51.51825, lng: -0.0825, osm: 'node/469760987' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop E &middot; Bishopsgate &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51808, lng: -0.07996, osm: 'node/469760988' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop F &middot; Bishopsgate &middot; northbound', facts: '', lat: 51.51743, lng: -0.08061, osm: 'node/25477351' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop G &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51856, lng: -0.07975, osm: 'node/469761438' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop K &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51726, lng: -0.08057, osm: 'node/469761435' },
+    { kind: 'bus', name: 'Liverpool Street Station', tag: 'Stop L &middot; Bishopsgate &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51787, lng: -0.07995, osm: 'node/3507382907' },
+    { kind: 'bus', name: 'Liverpool Street Station (Airport coaches)', tag: 'Stop G', facts: 'Shelter &middot; Seating', lat: 51.5196, lng: -0.07925, osm: 'node/10012734718' },
+    { kind: 'bus', name: 'London Bridge', tag: 'Stop 49 &middot; westbound', facts: '', lat: 51.50966, lng: -0.08758, osm: 'node/469765320' },
+    { kind: 'bus', name: 'London Wall', tag: 'Moorgate &middot; northbound', facts: '', lat: 51.51558, lng: -0.08943, osm: 'node/469774548' },
+    { kind: 'bus', name: 'London Wall', tag: 'Stop BE &middot; London Wall &middot; eastbound', facts: '', lat: 51.51758, lng: -0.0952, osm: 'node/469776893' },
+    { kind: 'bus', name: 'London Wall', tag: 'Stop BH &middot; London Wall &middot; westbound', facts: '', lat: 51.5174, lng: -0.09512, osm: 'node/469776898' },
+    { kind: 'bus', name: 'London Wall / Moorgate Station', tag: 'Stop A &middot; London Wall &middot; eastbound', facts: '', lat: 51.51759, lng: -0.08975, osm: 'node/3625306718' },
+    { kind: 'bus', name: 'Ludgate Circus', tag: 'Stop E &middot; Fleet Street &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51425, lng: -0.10534, osm: 'node/469779904' },
+    { kind: 'bus', name: 'Ludgate Hill / Old Bailey', tag: 'Stop G &middot; Ludgate Hill &middot; northbound', facts: '', lat: 51.51395, lng: -0.1019, osm: 'node/469773446' },
+    { kind: 'bus', name: 'Mansell Street', tag: 'Stop S &middot; Mansell Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51282, lng: -0.0733, osm: 'node/469774429' },
+    { kind: 'bus', name: 'Mansion House Station', tag: 'Stop ME &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51266, lng: -0.09482, osm: 'node/469761460' },
+    { kind: 'bus', name: 'Mansion House Station', tag: 'Stop MS &middot; westbound', facts: '', lat: 51.51212, lng: -0.09469, osm: 'node/469761461' },
+    { kind: 'bus', name: 'Millennium Bridge', tag: 'Stop SF &middot; Queen Victoria Street &middot; westbound', facts: '', lat: 51.51188, lng: -0.09796, osm: 'node/469788642' },
+    { kind: 'bus', name: 'Millennium Bridge', tag: 'Stop SG &middot; Queen Victoria Street &middot; eastbound', facts: '', lat: 51.51205, lng: -0.09922, osm: 'node/469788640' },
+    { kind: 'bus', name: 'Minories', tag: 'Stop H', facts: '', lat: 51.51277, lng: -0.07556, osm: 'node/469759895' },
+    { kind: 'bus', name: 'Monument Station', tag: 'Stop H &middot; Eastcheap &middot; eastbound', facts: '', lat: 51.51079, lng: -0.08491, osm: 'node/469760419' },
+    { kind: 'bus', name: 'Monument Station', tag: 'Stop J &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51068, lng: -0.08517, osm: 'node/469760423' },
+    { kind: 'bus', name: 'Moorgate Station', tag: 'Stop B &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51863, lng: -0.08813, osm: 'node/469760424' },
+    { kind: 'bus', name: 'Moorgate Station', tag: 'Stop L &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51779, lng: -0.08841, osm: 'node/469760425' },
+    { kind: 'bus', name: 'Moorgate Station', tag: 'Stop N &middot; London Wall &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51743, lng: -0.08999, osm: 'node/3625306717' },
+    { kind: 'bus', name: 'Museum of London', tag: 'Stop BC &middot; Aldersgate Street &middot; northbound', facts: '', lat: 51.51887, lng: -0.09724, osm: 'node/469776895' },
+    { kind: 'bus', name: 'Museum of London', tag: 'Stop BD &middot; Aldersgate Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51837, lng: -0.09684, osm: 'node/4826448084' },
+    { kind: 'bus', name: 'New Change / Cannon Street', tag: 'Stop SL &middot; New Change &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51387, lng: -0.09658, osm: 'node/441958991' },
+    { kind: 'bus', name: 'New Change / Cannon Street', tag: 'Stop SM &middot; New Change &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51349, lng: -0.09627, osm: 'node/469777023' },
+    { kind: 'bus', name: 'Poultry / Bank Station', tag: 'Stop L &middot; northbound', facts: '', lat: 51.51356, lng: -0.09109, osm: 'node/469771226' },
+    { kind: 'bus', name: 'Primrose Street', tag: 'Stop H &middot; Bishopsgate &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51995, lng: -0.07913, osm: 'node/469778583' },
+    { kind: 'bus', name: 'Queen Street Place', tag: 'Queen Street Place &middot; northbound', facts: '', lat: 51.50997, lng: -0.09331, osm: 'node/469778107' },
+    { kind: 'bus', name: 'Rood Lane', tag: 'Stop W &middot; Fenchurch Street &middot; eastbound', facts: '', lat: 51.51162, lng: -0.08264, osm: 'node/469777701' },
+    { kind: 'bus', name: 'Rood Lane', tag: 'Stop Y &middot; Fenchurch Street &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51156, lng: -0.08216, osm: 'node/469777702' },
+    { kind: 'bus', name: 'Shoe Lane', tag: 'Stop H &middot; Fleet Street &middot; westbound', facts: '', lat: 51.51414, lng: -0.10668, osm: 'node/469779905' },
+    { kind: 'bus', name: 'Silk Street', tag: 'Stop BM &middot; westbound', facts: '', lat: 51.52094, lng: -0.09173, osm: 'node/1723340818' },
+    { kind: 'bus', name: 'Snow Hill', tag: 'Stop HS &middot; Farringdon Street &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51803, lng: -0.10534, osm: 'node/469765707' },
+    { kind: 'bus', name: 'Snow Hill', tag: 'Stop HT &middot; Farringdon Street &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51799, lng: -0.10513, osm: 'node/251952339' },
+    { kind: 'bus', name: 'St Andrew Street', tag: 'St Andrew Street &middot; southbound', facts: '', lat: 51.51685, lng: -0.10674, osm: 'node/469782014' },
+    { kind: 'bus', name: 'St Bartholomew&rsquo;s Hospital', tag: 'Stop HQ &middot; West Smithfield &middot; southbound', facts: 'Shelter', lat: 51.51748, lng: -0.10126, osm: 'node/469781018' },
+    { kind: 'bus', name: 'St Botolph Street', tag: 'Stop B &middot; St Botolph Street &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51493, lng: -0.07522, osm: 'node/469759894' },
+    { kind: 'bus', name: 'St Katharine Cree', tag: 'Stop W &middot; Leadenhall Street &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51326, lng: -0.07916, osm: 'node/469781746' },
+    { kind: 'bus', name: 'St Katharine Cree', tag: 'Stop X &middot; Leadenhall Street &middot; eastbound', facts: '', lat: 51.51332, lng: -0.07873, osm: 'node/469781745' },
+    { kind: 'bus', name: 'St Mary Axe', tag: 'Stop LR &middot; eastbound', facts: '', lat: 51.51352, lng: -0.0827, osm: 'node/469781266' },
+    { kind: 'bus', name: 'St Mary Axe', tag: 'Stop Z &middot; westbound', facts: '', lat: 51.51344, lng: -0.08241, osm: 'node/469781267' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Cathedral', tag: 'Stop SJ &middot; St Paul&rsquo;s Churchyard &middot; westbound', facts: '', lat: 51.51332, lng: -0.09958, osm: 'node/469781401' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Cathedral', tag: 'Stop SK &middot; eastbound', facts: '', lat: 51.5132, lng: -0.09761, osm: 'node/469781398' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Churchyard', tag: 'Stop SH &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51304, lng: -0.09748, osm: 'node/469777024' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Station', tag: 'Stop SQ &middot; Newgate Street &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51552, lng: -0.09949, osm: 'node/441966148' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Station', tag: 'Stop SW &middot; St Martin&rsquo;s Le Grand &middot; southbound', facts: '', lat: 51.51557, lng: -0.09708, osm: 'node/469761242' },
+    { kind: 'bus', name: 'St Paul&rsquo;s Station', tag: 'Stop SY &middot; Cheapside &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.51443, lng: -0.09569, osm: 'node/469761244' },
+    { kind: 'bus', name: 'Temple Avenue', tag: 'Victoria Embankment &middot; eastbound', facts: 'Shelter &middot; Seating', lat: 51.5111, lng: -0.10933, osm: 'node/469772779' },
+    { kind: 'bus', name: 'Temple Avenue', tag: 'Victoria Embankment &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51101, lng: -0.11022, osm: 'node/469774928' },
+    { kind: 'bus', name: 'Threadneedle Street', tag: 'Stop LN &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51413, lng: -0.0839, osm: 'node/469774062' },
+    { kind: 'bus', name: 'Threadneedle Street', tag: 'Stop S &middot; southbound', facts: 'Shelter &middot; Seating', lat: 51.51384, lng: -0.0839, osm: 'node/469774063' },
+    { kind: 'bus', name: 'Tower Gateway Station', tag: 'Stop TC &middot; Minories &middot; northbound', facts: '', lat: 51.5108, lng: -0.07514, osm: 'node/469762510' },
+    { kind: 'bus', name: 'Tower Gateway Station', tag: 'Stop TD &middot; Minories &middot; northbound', facts: 'Shelter &middot; Seating', lat: 51.51046, lng: -0.07505, osm: 'node/469762509' },
+    { kind: 'bus', name: 'Wormwood Street', tag: 'Stop P &middot; Wormwood Street &middot; northbound', facts: '', lat: 51.51631, lng: -0.08221, osm: 'node/469765564' },
+    { kind: 'bus', name: 'Wormwood Street', tag: 'Stop Q &middot; Wormwood Street &middot; westbound', facts: 'Shelter &middot; Seating', lat: 51.51619, lng: -0.08267, osm: 'node/469765565' },
+    { kind: 'bus', name: 'Worship Street', tag: 'Worship Street &middot; eastbound', facts: '', lat: 51.5218, lng: -0.08064, osm: 'node/469786700' },
+    { kind: 'airport', name: 'Heathrow Airport (LHR)', tag: 'Elizabeth line from Liverpool Street or Farringdon', lat: 51.47, lng: -0.45431 },
+    { kind: 'airport', name: 'London City Airport (LCY)', tag: 'DLR from Bank or Tower Gateway', lat: 51.50477, lng: 0.04953 },
+    { kind: 'airport', name: 'Gatwick Airport (LGW)', tag: 'Thameslink from City Thameslink or Blackfriars', lat: 51.15372, lng: -0.18208 },
+    { kind: 'airport', name: 'Stansted Airport (STN)', tag: 'Stansted Express from Liverpool Street', lat: 51.88602, lng: 0.23888 },
+    { kind: 'airport', name: 'Luton Airport (LTN)', tag: 'Thameslink from City Thameslink or Farringdon', lat: 51.87468, lng: -0.36828 },
+    { kind: 'eurostar', name: 'Eurostar &ndash; St Pancras International', tag: 'Paris, Brussels, Amsterdam &middot; Thameslink from Farringdon or Circle/Metropolitan from Moorgate', lat: 51.53151, lng: -0.12631 }
+  ];
+
+  // Event venues
+  var VENUES = [
+    { name: 'Mansion House', tag: 'Bank &middot; Lord Mayor&rsquo;s residence &amp; events', lat: 51.51297, lng: -0.08948, osm: 'way/33695114' },
+    { name: 'Tobacco Dock', tag: 'Wapping &middot; Events &amp; conference venue', lat: 51.5084, lng: -0.05947, osm: 'relation/12218448' },
+    { name: 'ExCeL London', tag: 'Royal Victoria Dock &middot; Exhibition &amp; convention centre', lat: 51.50814, lng: 0.02955 }
+  ];
+
   var CITY_CENTRE = { name: 'City of London', lat: 51.5155, lng: -0.0922 };
 
   // Simplified City of London boundary (OpenStreetMap relation 51800)
@@ -134,7 +291,13 @@
   var FORK_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M17 3c-2 0-3 2-3 6s1 4 3 4v8"/></svg>';
   var TICKET_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z" transform="translate(0 2)"/></svg>';
   var WC_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="4.5" r="1.8"/><circle cx="17" cy="4.5" r="1.8"/><path d="M5 22v-7H4l1-7h4l1 7H9v7M17 22v-6M15 9h4l1 6h-6z"/></svg>';
-  var ICONS = { hotels: BED_SVG, restaurants: FORK_SVG, shows: TICKET_SVG, toilets: WC_SVG };
+  var TUBE_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="6.5"/><path d="M2.5 12h19"/></svg>';
+  var BUS_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="15" rx="2"/><path d="M5 11h14M8 18v3M16 18v3"/><circle cx="8.5" cy="14.5" r=".8" fill="currentColor"/><circle cx="15.5" cy="14.5" r=".8" fill="currentColor"/></svg>';
+  var PLANE_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 21l1.5-1.5 1.5 1.5v-3l-1.5-1V13l8 3v-2l-8-5V4.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-3v4l-1.5 1z" transform="translate(1.5 0)"/></svg>';
+  var TRAIN_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="14" rx="4"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/><circle cx="12" cy="7" r=".8" fill="currentColor"/></svg>';
+  var VENUE_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M4 10h16M12 3l8 5H4zM6 10v11M10 10v11M14 10v11M18 10v11"/></svg>';
+  var ICONS = { hotels: BED_SVG, restaurants: FORK_SVG, shows: TICKET_SVG, toilets: WC_SVG, transport: TUBE_SVG, venues: VENUE_SVG };
+  var KIND_ICONS = { tube: TUBE_SVG, bus: BUS_SVG, airport: PLANE_SVG, eurostar: TRAIN_SVG };
 
   function addTiles(map) {
     // Esri tiles need no API key and load from file:// (CARTO/OSM reject requests without a referrer)
@@ -161,11 +324,11 @@
     });
   }
 
-  function venueIcon(cat, id) {
+  function venueIcon(cat, id, svg) {
     return L.divIcon({
       className: 'map-pin-anchor',
       iconSize: null,
-      html: '<span class="map-pin map-pin--round map-pin--' + cat + '" data-id="' + id + '">' + ICONS[cat] + '</span>'
+      html: '<span class="map-pin map-pin--round map-pin--' + cat + '" data-id="' + id + '">' + (svg || ICONS[cat]) + '</span>'
     });
   }
 
@@ -251,6 +414,9 @@
     RESTAURANTS: RESTAURANTS,
     SHOWS: SHOWS,
     TOILETS: TOILETS,
+    TRANSPORT: TRANSPORT,
+    VENUES: VENUES,
+    KIND_ICONS: KIND_ICONS,
     CITY_CENTRE: CITY_CENTRE,
     CITY_BOUNDARY: CITY_BOUNDARY,
     addBoundary: addBoundary,

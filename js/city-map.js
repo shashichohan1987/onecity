@@ -63,7 +63,29 @@
     { name: 'Guildhall School of Music &amp; Drama', img: 'assets/img/guide-art.jpg', tag: 'Barbican', href: 'book-city.html#shows', lat: 51.5196, lng: -0.0905 },
     { name: 'Milton Court Concert Hall', img: 'assets/img/guide-evening.jpg', tag: 'Silk Street', href: 'book-city.html#shows', lat: 51.5213, lng: -0.0885 },
     { name: 'St Paul&rsquo;s Cathedral', img: 'assets/img/guide-walks.jpg', tag: 'St Paul&rsquo;s Churchyard', href: 'book-city.html#shows', lat: 51.5138, lng: -0.0984 },
+    { name: 'Tower of London', img: 'assets/img/cat-landmarks.png', tag: 'Tower Hill &middot; Historic palace &amp; fortress', href: 'book-city.html#attractions', lat: 51.50806, lng: -0.07594 },
     { name: 'Leadenhall Market Live', img: 'assets/img/guide-friday.jpg', tag: 'Gracechurch Street', href: 'book-city.html#shows', lat: 51.5127, lng: -0.0836 }
+  ];
+
+  // Public toilets inside the City of London boundary (OpenStreetMap, Nov 2026). "Near ..." labels are approximate.
+  var TOILETS = [
+    { name: 'Public toilet', tag: 'Near Liverpool Street station', fee: 'Free', accessible: true, babyChange: false, hours: '', lat: 51.51768, lng: -0.0816, osm: 'node/553308759' },
+    { name: 'Public toilet', tag: 'Near Tower Hill', fee: 'Paid', accessible: true, babyChange: false, hours: '', lat: 51.50882, lng: -0.07889, osm: 'node/694510919' },
+    { name: 'Public toilet', tag: 'Near St Paul&rsquo;s Cathedral', fee: 'Paid', accessible: true, babyChange: false, hours: 'Mo-Fr 08:00-20:00; Sa,Su,PH 09:00-17:00', lat: 51.51431, lng: -0.09934, osm: 'node/747813217' },
+    { name: 'Public toilet', tag: 'Near Paul&rsquo;s Walk (Thames Path)', fee: 'Paid', accessible: false, babyChange: false, hours: '', lat: 51.51088, lng: -0.10061, osm: 'node/1320893735' },
+    { name: 'Public toilet', tag: 'Near Cannon Street riverside', fee: 'Paid', accessible: false, babyChange: false, hours: '', lat: 51.5093, lng: -0.0907, osm: 'node/1723656498' },
+    { name: 'Public toilet', tag: 'Near Bow Lane', fee: '', accessible: false, babyChange: false, hours: '', lat: 51.51391, lng: -0.09493, osm: 'node/3269358623' },
+    { name: 'Public toilet', tag: 'Near Cheapside', fee: '', accessible: false, babyChange: false, hours: '', lat: 51.51347, lng: -0.09525, osm: 'node/3269424658' },
+    { name: 'Public toilet', tag: 'Near Liverpool Street concourse', fee: 'Free', accessible: true, babyChange: false, hours: '', lat: 51.51761, lng: -0.08162, osm: 'node/3794539887' },
+    { name: 'Public toilet', tag: 'Near Bank', fee: 'Paid', accessible: false, babyChange: false, hours: '', lat: 51.51348, lng: -0.08862, osm: 'node/3906081659' },
+    { name: 'Public toilet', tag: 'Near Barbican Centre', fee: 'Free', accessible: true, babyChange: false, hours: '', lat: 51.51993, lng: -0.09332, osm: 'node/10798970431' },
+    { name: 'Public toilet', tag: 'Near Cannon Street station', fee: 'Free', accessible: true, babyChange: true, hours: '', lat: 51.51107, lng: -0.09057, osm: 'node/11866295817' },
+    { name: 'Public toilet', tag: 'Near Fenchurch Street station', fee: 'Free', accessible: true, babyChange: false, hours: '', lat: 51.51171, lng: -0.07897, osm: 'node/12222287877' },
+    { name: 'Public toilet', tag: 'Near Blackfriars station', fee: 'Free', accessible: true, babyChange: true, hours: '00:00-01:00,06:00-24:00', lat: 51.51146, lng: -0.10298, osm: 'node/12662996350' },
+    { name: 'Public toilet', tag: 'Near Queen Victoria Street', fee: '', accessible: false, babyChange: false, hours: '', lat: 51.51181, lng: -0.10063, osm: 'node/13901665062' },
+    { name: 'Public toilet', tag: 'Near Ludgate Circus', fee: 'Free', accessible: false, babyChange: false, hours: '', lat: 51.51378, lng: -0.10365, osm: 'node/14185899948' },
+    { name: 'Public toilet', tag: 'Near Holborn Viaduct', fee: '', accessible: false, babyChange: false, hours: '', lat: 51.51796, lng: -0.1069, osm: 'way/172307738' },
+    { name: 'Public toilet', tag: 'Near Bishopsgate', fee: 'Free', accessible: false, babyChange: false, hours: '', lat: 51.518, lng: -0.07974, osm: 'way/837408790' }
   ];
 
   var CITY_CENTRE = { name: 'City of London', lat: 51.5155, lng: -0.0922 };
@@ -109,7 +131,8 @@
   var BED_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></svg>';
   var FORK_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3v8M4 3v5a3 3 0 0 0 6 0V3M7 11v10M17 3c-2 0-3 2-3 6s1 4 3 4v8"/></svg>';
   var TICKET_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 1 0-4V4H3z" transform="translate(0 2)"/></svg>';
-  var ICONS = { hotels: BED_SVG, restaurants: FORK_SVG, shows: TICKET_SVG };
+  var WC_SVG = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="4.5" r="1.8"/><circle cx="17" cy="4.5" r="1.8"/><path d="M5 22v-7H4l1-7h4l1 7H9v7M17 22v-6M15 9h4l1 6h-6z"/></svg>';
+  var ICONS = { hotels: BED_SVG, restaurants: FORK_SVG, shows: TICKET_SVG, toilets: WC_SVG };
 
   function addTiles(map) {
     // Esri tiles need no API key and load from file:// (CARTO/OSM reject requests without a referrer)
@@ -172,7 +195,7 @@
         return L.divIcon({
           className: 'map-pin-anchor',
           iconSize: null,
-          html: '<span class="map-cluster">' + BED_SVG + cluster.getChildCount() + '</span>'
+          html: '<span class="map-cluster">' + (opts && opts.iconHtml ? opts.iconHtml() : BED_SVG) + cluster.getChildCount() + '</span>'
         });
       }
     }, opts || {}));
@@ -225,6 +248,7 @@
     HOTELS: HOTELS,
     RESTAURANTS: RESTAURANTS,
     SHOWS: SHOWS,
+    TOILETS: TOILETS,
     CITY_CENTRE: CITY_CENTRE,
     CITY_BOUNDARY: CITY_BOUNDARY,
     addBoundary: addBoundary,

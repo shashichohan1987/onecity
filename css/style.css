@@ -2708,6 +2708,7 @@ button { font-family: inherit; cursor: pointer; }
 .map-pin--round svg { width: 16px; height: 16px; }
 .map-pin--restaurants svg { background: #C2410C; }
 .map-pin--shows svg { background: #6D28D9; }
+.map-pin--toilets svg { background: #4B5563; }
 
 .map-centre {
   position: absolute;
@@ -2823,6 +2824,7 @@ body.map-view-open { overflow: hidden; }
 }
 .map-tab[data-cat="restaurants"] .map-tab-icon { background: #C2410C; }
 .map-tab[data-cat="shows"] .map-tab-icon { background: #6D28D9; }
+.map-tab[data-cat="toilets"] .map-tab-icon { background: #4B5563; }
 .map-tab.is-active { background: var(--navy); border-color: var(--navy); color: var(--white); }
 .map-tab.is-active .map-tab-icon { background: var(--yellow); color: var(--navy); }
 .map-view-summary { margin: 0 0 0 auto; font-size: 14px; font-weight: 500; color: rgba(10, 45, 80, 0.7); white-space: nowrap; }
@@ -2968,3 +2970,20 @@ body.map-view-open { overflow: hidden; }
 }
 .map-cluster:hover { transform: translate(-50%, -50%) scale(1.08); }
 .map-cluster svg { color: var(--yellow); }
+
+.map-item-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F1F3F5;
+  color: #4B5563;
+}
+.map-item-icon svg { width: 36px; height: 36px; }
+.map-item { grid-template-columns: 96px 1fr; }
+.map-view-items .map-item:has(.map-item-icon) { grid-template-columns: 56px 1fr; align-items: center; }
+.map-item-icon--toilets { width: 56px; height: 56px; }
+.map-item-icon--toilets svg { width: 26px; height: 26px; }
+.map-popup--compact .map-popup-body { padding: 12px 14px; }

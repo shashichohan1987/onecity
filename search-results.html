@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
-<link rel="stylesheet" href="css/style.css?v=14">
+<link rel="stylesheet" href="css/style.css?v=15">
 </head>
 <body>
 
@@ -252,7 +252,8 @@
       <div class="map-view-tabs" role="tablist">
         <button type="button" class="map-tab is-active" role="tab" data-cat="hotels"><span class="map-tab-icon"></span>Hotels <b data-count="hotels"></b></button>
         <button type="button" class="map-tab" role="tab" data-cat="restaurants"><span class="map-tab-icon"></span>Restaurants <b data-count="restaurants"></b></button>
-        <button type="button" class="map-tab" role="tab" data-cat="shows"><span class="map-tab-icon"></span>Shows <b data-count="shows"></b></button>
+        <button type="button" class="map-tab" role="tab" data-cat="shows"><span class="map-tab-icon"></span>Attractions <b data-count="shows"></b></button>
+        <button type="button" class="map-tab" role="tab" data-cat="toilets"><span class="map-tab-icon"></span>Toilets <b data-count="toilets"></b></button>
       </div>
       <p class="map-view-summary" id="mapViewSummary"></p>
       <button type="button" class="map-view-close" id="mapViewClose" aria-label="Close map and show list view">
@@ -344,7 +345,7 @@
 <script src="js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
-<script src="js/city-map.js?v=6"></script>
+<script src="js/city-map.js?v=9"></script>
 <script>
 (function () {
   var HOTELS = CityMap.HOTELS;
@@ -472,7 +473,21 @@
   var markers = {};
   var activeCat = 'hotels';
   var selectedId = null;
-  var DATA = { hotels: HOTELS, restaurants: CityMap.RESTAURANTS, shows: CityMap.SHOWS };
+  var DATA = { hotels: HOTELS, restaurants: CityMap.RESTAURANTS, shows: CityMap.SHOWS, toilets: CityMap.TOILETS };
+
+  // Toilets have no page of their own: link to walking directions in a new tab
+  CityMap.TOILETS.forEach(function (t) {
+    t.href = 'https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=' + t.lat + ',' + t.lng;
+    t.external = true;
+  });
+  function toiletFacts(t) {
+    return [t.fee, t.accessible ? 'Wheelchair accessible' : '', t.babyChange ? 'Baby change' : '', t.hours ? 'Hours: ' + t.hours : '']
+      .filter(Boolean).join(' &middot; ');
+  }
+  function linkAttrs(item) { return item.external ? ' target="_blank" rel="noopener"' : ''; }
+  function thumbHtml(cat, item, cls) {
+    return item.img ? '<img src="' + item.img + '" alt="">' : '<span class="' + cls + ' ' + cls + '--' + cat + '">' + CityMap.ICONS[cat] + '</span>';
+  }
   var shortFmt = { day: 'numeric', month: 'short' };
   var nightsLabel = nights + ' night' + (nights > 1 ? 's' : '');
 
@@ -519,6 +534,12 @@
           '<span class="map-popup-cta">Check availability &rarr;</span>' +
         '</span></a>';
     }
+    if (cat === 'toilets') {
+      return '<a class="map-popup map-popup--compact" href="' + item.href + '"' + linkAttrs(item) + '>' +
+        '<span class="map-popup-body"><strong>' + item.name + '</strong><span class="map-popup-meta">' + item.tag + '</span>' +
+        (toiletFacts(item) ? '<span class="map-popup-meta">' + toiletFacts(item) + '</span>' : '') +
+        '<span class="map-popup-cta">Walking directions &rarr;</span></span></a>';
+    }
     return '<a class="map-popup" href="' + item.href + '">' +
       '<img src="' + item.img + '" alt="">' +
       '<span class="map-popup-body"><strong>' + item.name + '</strong><span class="map-popup-meta">' + item.tag + '</span>' +
@@ -528,7 +549,7 @@
   function render(fit) {
     var cat = activeCat;
     var items = cat === 'hotels' ? sortedHotels() : DATA[cat];
-    var label = { hotels: 'properties', restaurants: 'restaurants', shows: 'venues' }[cat];
+    var label = { hotels: 'properties', restaurants: 'restaurants', shows: 'attractions', toilets: 'public toilets' }[cat];
     document.getElementById('mapListCount').textContent = items.length + ' ' + label + ' on this map';
 
     {
@@ -539,9 +560,10 @@
             '<span class="map-item-meta">' + item.loc + ' &middot; ' + item.miles + ' miles from centre</span>' +
             (item.cancellation ? '<span class="map-item-tag">Free cancellation</span>' : '') +
             '<span class="map-item-price">&pound;' + (item.price * nights).toLocaleString() + ' <small>' + nightsLabel + ', incl. taxes</small></span>'
-          : '<span class="map-item-meta">' + item.tag + '</span>';
-        return '<a class="map-item" href="' + href + '" data-id="' + itemId(cat, item) + '">' +
-          '<img src="' + item.img + '" alt="">' +
+          : '<span class="map-item-meta">' + item.tag + '</span>' +
+            (cat === 'toilets' && toiletFacts(item) ? '<span class="map-item-meta">' + toiletFacts(item) + '</span>' : '');
+        return '<a class="map-item" href="' + href + '"' + linkAttrs(item) + ' data-id="' + itemId(cat, item) + '">' +
+          thumbHtml(cat, item, 'map-item-icon') +
           '<span class="map-item-body"><strong>' + item.name + '</strong>' + meta + '</span></a>';
       }).join('');
     }
@@ -558,7 +580,9 @@
       m.on('mouseover', function () { cancelHoverClose(); highlight(id, true); select(id, true); });
       m.on('mouseout', function () { highlight(id, false); scheduleHoverClose(m); });
       m.on('click', function () {
-        if (m.isPopupOpen()) window.location.href = href; else select(id, true);
+        if (!m.isPopupOpen()) select(id, true);
+        else if (item.external) window.open(href, '_blank', 'noopener');
+        else window.location.href = href;
       });
       m.on('popupclose', function () { if (selectedId === id) select(null); });
       markers[id] = m;
@@ -659,7 +683,8 @@
       // and grouping switches off entirely from zoom 16
       markerLayer = CityMap.clusterGroup({
         maxClusterRadius: function (z) { return z >= 15 ? 14 : z >= 14 ? 24 : 45; },
-        disableClusteringAtZoom: 16
+        disableClusteringAtZoom: 16,
+        iconHtml: function () { return CityMap.ICONS[activeCat]; }
       }).addTo(map);
       map.on('popupopen', function (e) {
         var el = e.popup.getElement();
@@ -720,6 +745,9 @@
   });
 
   if (params.get('view') === 'map') openMapView(params.get('hotel'));
+  // Optional deep link to a tab, e.g. ?view=map&cat=toilets or &cat=attractions
+  var startCat = params.get('cat') === 'attractions' ? 'shows' : params.get('cat');
+  if (params.get('view') === 'map' && DATA[startCat] && startCat !== 'hotels') setCategory(startCat);
 })();
 </script>
 </body>

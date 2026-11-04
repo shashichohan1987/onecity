@@ -359,6 +359,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/city-map.js?v=6"></script>
 <script>
 (function () {
   var ICONS = {
@@ -490,7 +491,21 @@
 
   var params = new URLSearchParams(window.location.search);
   var slug = params.get('hotel') || 'hyde-london-city';
-  var hotel = HOTELS[slug] || HOTELS['hyde-london-city'];
+  // Hotels added from the map dataset (js/city-map.js) get a generic page built from their map data
+  function fromMapData(h) {
+    var rates = [{ label: 'Room Only', cancellation: h.cancellation, breakfast: false, price: h.price }];
+    if (h.breakfast) rates.push({ label: 'Bed and Breakfast', cancellation: h.cancellation, breakfast: true, price: h.price + 25 });
+    var name = h.name.replace(/&ndash;/g, '–').replace(/&amp;/g, '&');
+    return {
+      name: name, stars: h.stars, area: h.loc, img: h.img,
+      address: (h.address ? h.address : h.loc + ', London') + ' · City of London',
+      overview: name + ' is in ' + h.loc + ', inside the City of London’s Square Mile and about ' + h.miles + ' miles from the centre. Room types, prices and policies shown here are sample data for this demo.',
+      amenities: ['wifi', 'frontdesk', 'aircon'],
+      rooms: [{ name: h.room, guests: 2, bed: h.bed, rates: rates }]
+    };
+  }
+  var mapHotel = window.CityMap ? CityMap.HOTELS.filter(function (h) { return h.slug === slug; })[0] : null;
+  var hotel = HOTELS[slug] || (mapHotel ? fromMapData(mapHotel) : HOTELS['hyde-london-city']);
 
   var checkin = params.get('checkin') || '';
   var checkout = params.get('checkout') || '';

@@ -8,7 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -166,6 +168,11 @@
 
   <section class="results-layout">
     <aside class="results-filters">
+      <div class="filters-map-card" id="openMapCard">
+        <div class="filters-map-canvas" id="filtersMapCanvas" aria-hidden="true"></div>
+        <button type="button" class="filters-map-btn" id="openMapView">Show on map</button>
+      </div>
+
       <div class="filter-block">
         <h4>Total Price</h4>
         <div class="filter-price-inputs">
@@ -239,6 +246,42 @@
     </div>
   </section>
 
+
+  <div class="map-view" id="mapView" role="dialog" aria-modal="true" aria-label="Hotels on the map" hidden>
+    <div class="map-view-bar">
+      <div class="map-view-tabs" role="tablist">
+        <button type="button" class="map-tab is-active" role="tab" data-cat="hotels"><span class="map-tab-icon"></span>Hotels <b data-count="hotels"></b></button>
+        <button type="button" class="map-tab" role="tab" data-cat="restaurants"><span class="map-tab-icon"></span>Restaurants <b data-count="restaurants"></b></button>
+        <button type="button" class="map-tab" role="tab" data-cat="shows"><span class="map-tab-icon"></span>Shows <b data-count="shows"></b></button>
+      </div>
+      <p class="map-view-summary" id="mapViewSummary"></p>
+      <button type="button" class="map-view-close" id="mapViewClose" aria-label="Close map and show list view">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="map-view-body">
+      <div class="map-view-list">
+        <div class="map-view-list-head">
+          <p id="mapListCount"></p>
+          <label class="map-view-sort" id="mapSortWrap">Sort
+            <select id="mapSort">
+              <option value="recommended">Recommended</option>
+              <option value="price-asc">Price (low to high)</option>
+              <option value="price-desc">Price (high to low)</option>
+              <option value="distance">Distance from centre</option>
+            </select>
+          </label>
+        </div>
+        <div class="map-view-items" id="mapList"></div>
+      </div>
+
+      <div class="map-view-map" id="mapViewMap"></div>
+    </div>
+
+    <button type="button" class="map-view-toggle" id="mapViewToggle">Show list</button>
+  </div>
+
 </main>
 
 <footer class="site-footer">
@@ -299,16 +342,12 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="js/city-map.js?v=6"></script>
 <script>
 (function () {
-  var HOTELS = [
-    { slug: 'hyde-london-city', name: 'Hyde London City', img: 'assets/img/hotel-hyde.jpg', loc: 'Blackfriars', distance: '0.4 miles from City of London', room: '1 x Superior King Room', bed: 'King size bed', stars: 4, price: 219, cancellation: true, breakfast: false },
-    { slug: 'lost-property-hotel', name: 'Lost Property Hotel', img: 'assets/img/hotel-lostproperty.jpg', loc: 'Ludgate Hill', distance: '0.3 miles from City of London', room: '1 x Rooftop View Double', bed: 'Double bed', stars: 4, price: 245, cancellation: true, breakfast: true },
-    { slug: 'clayton-hotel-city-of-london', name: 'Clayton Hotel City of London', img: 'assets/img/hotel-clayton.jpg', loc: 'Aldgate', distance: '0.6 miles from City of London', room: '1 x Classic Double Room', bed: 'Double bed', stars: 4, price: 178, cancellation: true, breakfast: false },
-    { slug: 'the-chamberlain', name: 'The Chamberlain', img: 'assets/img/hotel-chamberlain.jpg', loc: 'Minories', distance: '0.5 miles from City of London', room: '1 x Deluxe Double Room', bed: 'Queen size bed', stars: 4, price: 195, cancellation: false, breakfast: true },
-    { slug: 'the-counting-house', name: 'The Counting House', img: 'assets/img/hotel-countinghouse.jpg', loc: 'Cornhill', distance: '0.2 miles from City of London', room: '1 x Classic Room', bed: 'Double bed', stars: 3, price: 232, cancellation: false, breakfast: false },
-    { slug: 'doubletree-tower-of-london', name: 'DoubleTree by Hilton &ndash; Tower of London', img: 'assets/img/hotel-doubletree.jpg', loc: 'Tower Hill', distance: '0.7 miles from City of London', room: '1 x King Room with Thames View', bed: 'King size bed', stars: 5, price: 210, cancellation: true, breakfast: true }
-  ];
+  var HOTELS = CityMap.HOTELS;
 
   function formatDate(value) {
     if (!value) return null;
@@ -424,6 +463,263 @@
     if (codeVal) p.set('code', codeVal);
     window.location.href = 'search-results.html?' + p.toString();
   });
+
+  /* ---------- Map view (opened with ?view=map, or the "View on map" button) ---------- */
+  var mapView = document.getElementById('mapView');
+  var mapList = document.getElementById('mapList');
+  var map = null;
+  var markerLayer = null;
+  var markers = {};
+  var activeCat = 'hotels';
+  var selectedId = null;
+  var DATA = { hotels: HOTELS, restaurants: CityMap.RESTAURANTS, shows: CityMap.SHOWS };
+  var shortFmt = { day: 'numeric', month: 'short' };
+  var nightsLabel = nights + ' night' + (nights > 1 ? 's' : '');
+
+  document.getElementById('mapViewSummary').innerHTML =
+    destination.split(',')[0] + ' &middot; ' +
+    new Date(checkin + 'T00:00:00').toLocaleDateString('en-GB', shortFmt) + ' &ndash; ' +
+    new Date(checkout + 'T00:00:00').toLocaleDateString('en-GB', shortFmt) + ' &middot; ' +
+    nightsLabel + ' &middot; ' + adults + ' adults';
+
+  document.querySelectorAll('.map-tab').forEach(function (tab) {
+    var cat = tab.getAttribute('data-cat');
+    tab.querySelector('.map-tab-icon').innerHTML = CityMap.ICONS[cat];
+    tab.querySelector('[data-count]').textContent = DATA[cat].length;
+    tab.addEventListener('click', function () { setCategory(cat); });
+  });
+
+  function hotelHref(h) {
+    return 'hotel-detail.html?' + new URLSearchParams({
+      hotel: h.slug, checkin: checkin, checkout: checkout, adults: adults, children: children, rooms: rooms
+    }).toString();
+  }
+
+  function starsHtml(n) { return '<span class="result-card-stars">' + new Array(n + 1).join('&#9733;') + '</span>'; }
+
+  function itemId(cat, item) { return cat === 'hotels' ? item.slug : cat + '-' + DATA[cat].indexOf(item); }
+
+  function sortedHotels() {
+    var out = HOTELS.slice();
+    var sort = document.getElementById('mapSort').value;
+    if (sort === 'price-asc') out.sort(function (a, b) { return a.price - b.price; });
+    if (sort === 'price-desc') out.sort(function (a, b) { return b.price - a.price; });
+    if (sort === 'distance') out.sort(function (a, b) { return a.miles - b.miles; });
+    return out;
+  }
+
+  function popupHtml(cat, item) {
+    if (cat === 'hotels') {
+      return '<a class="map-popup" href="' + hotelHref(item) + '">' +
+        '<img src="' + item.img + '" alt="">' +
+        '<span class="map-popup-body">' +
+          '<strong>' + item.name + '</strong>' + starsHtml(item.stars) +
+          '<span class="map-popup-meta">' + item.loc + ' &middot; ' + item.miles + ' mi from centre</span>' +
+          '<span class="map-popup-price">&pound;' + (item.price * nights).toLocaleString() + ' <small>' + nightsLabel + '</small></span>' +
+          '<span class="map-popup-cta">Check availability &rarr;</span>' +
+        '</span></a>';
+    }
+    return '<a class="map-popup" href="' + item.href + '">' +
+      '<img src="' + item.img + '" alt="">' +
+      '<span class="map-popup-body"><strong>' + item.name + '</strong><span class="map-popup-meta">' + item.tag + '</span>' +
+      '<span class="map-popup-cta">View details &rarr;</span></span></a>';
+  }
+
+  function render(fit) {
+    var cat = activeCat;
+    var items = cat === 'hotels' ? sortedHotels() : DATA[cat];
+    var label = { hotels: 'properties', restaurants: 'restaurants', shows: 'venues' }[cat];
+    document.getElementById('mapListCount').textContent = items.length + ' ' + label + ' on this map';
+
+    {
+      mapList.innerHTML = items.map(function (item) {
+        var href = cat === 'hotels' ? hotelHref(item) : item.href;
+        var meta = cat === 'hotels'
+          ? starsHtml(item.stars) +
+            '<span class="map-item-meta">' + item.loc + ' &middot; ' + item.miles + ' miles from centre</span>' +
+            (item.cancellation ? '<span class="map-item-tag">Free cancellation</span>' : '') +
+            '<span class="map-item-price">&pound;' + (item.price * nights).toLocaleString() + ' <small>' + nightsLabel + ', incl. taxes</small></span>'
+          : '<span class="map-item-meta">' + item.tag + '</span>';
+        return '<a class="map-item" href="' + href + '" data-id="' + itemId(cat, item) + '">' +
+          '<img src="' + item.img + '" alt="">' +
+          '<span class="map-item-body"><strong>' + item.name + '</strong>' + meta + '</span></a>';
+      }).join('');
+    }
+
+    markerLayer.clearLayers();
+    markers = {};
+    items.forEach(function (item) {
+      var id = itemId(cat, item);
+      var icon = cat === 'hotels' ? CityMap.priceIcon(item) : CityMap.venueIcon(cat, id);
+      var m = L.marker([item.lat, item.lng], { icon: icon })
+        .bindPopup(popupHtml(cat, item), { offset: [0, -40], closeButton: false, className: 'map-popup-wrap', autoPan: false });
+      var href = cat === 'hotels' ? hotelHref(item) : item.href;
+      // Details show on hover; click opens the property. On touch, the first tap shows details, the second opens it.
+      m.on('mouseover', function () { cancelHoverClose(); highlight(id, true); select(id, true); });
+      m.on('mouseout', function () { highlight(id, false); scheduleHoverClose(m); });
+      m.on('click', function () {
+        if (m.isPopupOpen()) window.location.href = href; else select(id, true);
+      });
+      m.on('popupclose', function () { if (selectedId === id) select(null); });
+      markers[id] = m;
+      markerLayer.addLayer(m);
+    });
+
+    mapList.querySelectorAll('.map-item').forEach(function (el) {
+      var id = el.getAttribute('data-id');
+      el.addEventListener('mouseenter', function () { highlight(id, true); });
+      el.addEventListener('mouseleave', function () { highlight(id, false); });
+    });
+
+    if (fit && items.length) {
+      map.fitBounds(L.latLngBounds(items.map(function (it) { return [it.lat, it.lng]; })), { padding: [30, 30], maxZoom: 16 });
+    }
+    if (selectedId && markers[selectedId]) select(selectedId, false);
+  }
+
+  var hoverCloseTimer = null;
+  function cancelHoverClose() { clearTimeout(hoverCloseTimer); }
+  function scheduleHoverClose(m) {
+    cancelHoverClose();
+    hoverCloseTimer = setTimeout(function () { m.closePopup(); }, 250);
+  }
+
+  function pinEl(id) {
+    var m = markers[id];
+    return m && m.getElement() ? m.getElement().querySelector('.map-pin') : null;
+  }
+
+  function highlight(id, on) {
+    var pin = pinEl(id);
+    if (pin) pin.classList.toggle('is-hover', on);
+    if (markers[id]) markers[id].setZIndexOffset(on ? 1000 : (id === selectedId ? 900 : 0));
+    var card = mapList.querySelector('.map-item[data-id="' + id + '"]');
+    if (card) card.classList.toggle('is-hover', on);
+  }
+
+  function select(id, scrollCard) {
+    var prev = selectedId;
+    selectedId = id;
+    if (prev && prev !== id) {
+      var prevPin = pinEl(prev);
+      if (prevPin) prevPin.classList.remove('is-active');
+      if (markers[prev]) markers[prev].setZIndexOffset(0);
+    }
+    mapList.querySelectorAll('.map-item.is-active').forEach(function (el) { el.classList.remove('is-active'); });
+    if (!id || !markers[id]) return;
+    var m = markers[id];
+    m.setZIndexOffset(900);
+    var reveal = function () {
+      var pin = pinEl(id);
+      if (pin) pin.classList.add('is-active');
+      if (!m.isPopupOpen()) m.openPopup();
+    };
+    if (markerLayer.zoomToShowLayer && !m.getElement()) markerLayer.zoomToShowLayer(m, reveal); else reveal();
+    var card = mapList.querySelector('.map-item[data-id="' + id + '"]');
+    if (card) {
+      card.classList.add('is-active');
+      if (scrollCard) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function setCategory(cat) {
+    activeCat = cat;
+    selectedId = null;
+    map.closePopup();
+    document.querySelectorAll('.map-tab').forEach(function (t) {
+      var on = t.getAttribute('data-cat') === cat;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on);
+    });
+    document.getElementById('mapSortWrap').hidden = cat !== 'hotels';
+    map.invalidateSize();
+    render(true);
+  }
+
+  document.getElementById('mapSort').addEventListener('change', function () { render(false); });
+
+  // ?view=list (default) or ?view=map; switching pushes history so Back returns to the previous view
+  function setUrlView(on, push) {
+    var p = new URLSearchParams(window.location.search);
+    p.set('view', on ? 'map' : 'list');
+    if (!on) p.delete('hotel');
+    history[push ? 'pushState' : 'replaceState'](null, '', 'search-results.html?' + p.toString());
+  }
+
+  function openMapView(preselect) {
+    mapView.hidden = false;
+    document.body.classList.add('map-view-open');
+    if (!map) {
+      map = L.map('mapViewMap', { zoomControl: false, zoomSnap: 0.25 });
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+      CityMap.addTiles(map);
+      CityMap.addCentreMarker(map);
+      CityMap.addBoundary(map);
+      // Show individual prices wherever possible: only near-identical locations group at city zoom,
+      // and grouping switches off entirely from zoom 16
+      markerLayer = CityMap.clusterGroup({
+        maxClusterRadius: function (z) { return z >= 15 ? 14 : z >= 14 ? 24 : 45; },
+        disableClusteringAtZoom: 16
+      }).addTo(map);
+      map.on('popupopen', function (e) {
+        var el = e.popup.getElement();
+        el.addEventListener('mouseenter', cancelHoverClose);
+        el.addEventListener('mouseleave', function () { scheduleHoverClose(e.popup); });
+      });
+      map.fitBounds(CityMap.hotelBounds(), { padding: [80, 80] });
+    }
+    map.invalidateSize();
+    var known = preselect && HOTELS.some(function (h) { return h.slug === preselect; });
+    selectedId = null;
+    render(true);
+    if (known) select(preselect, true);
+  }
+
+  function closeMapView() {
+    mapView.hidden = true;
+    document.body.classList.remove('map-view-open', 'map-view-show-list');
+    miniMap.invalidateSize();
+  }
+
+  function setView(view) {
+    if (view === 'map') { setUrlView(true, true); openMapView(); }
+    else { setUrlView(false, true); closeMapView(); }
+  }
+
+  // List view: small static map above the filters opens the map view
+  var miniMap = L.map('filtersMapCanvas', {
+    dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false,
+    keyboard: false, touchZoom: false, zoomControl: false, attributionControl: false, zoomSnap: 0.25
+  });
+  CityMap.addTiles(miniMap);
+  CityMap.addBoundary(miniMap);
+  miniMap.fitBounds(CityMap.hotelBounds(), { padding: [10, 10] });
+  HOTELS.forEach(function (h) {
+    L.marker([h.lat, h.lng], {
+      interactive: false,
+      icon: L.divIcon({ className: 'map-pin-anchor', iconSize: null, html: '<span class="map-dot"></span>' })
+    }).addTo(miniMap);
+  });
+  document.getElementById('openMapCard').addEventListener('click', function () { setView('map'); });
+
+  document.getElementById('mapViewClose').addEventListener('click', function () { setView('list'); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !mapView.hidden) setView('list');
+  });
+  window.addEventListener('popstate', function () {
+    var q = new URLSearchParams(window.location.search);
+    if (q.get('view') === 'map') openMapView(q.get('hotel')); else closeMapView();
+  });
+
+  // Mobile: toggle between list and map
+  var toggle = document.getElementById('mapViewToggle');
+  toggle.addEventListener('click', function () {
+    var showList = document.body.classList.toggle('map-view-show-list');
+    toggle.textContent = showList ? 'Show map' : 'Show list';
+    if (!showList) map.invalidateSize();
+  });
+
+  if (params.get('view') === 'map') openMapView(params.get('hotel'));
 })();
 </script>
 </body>

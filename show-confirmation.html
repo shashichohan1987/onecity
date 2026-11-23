@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed - OneCity</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="OneCity home">
+      <img src="assets/svg/logo.svg" alt="OneCity" width="180" height="30">
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="#" class="has-arrow">Things to do <span class="arrow">&rarr;</span></a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/guides/">Guides</a></li>
+        <li><a href="book-city.html">Book City</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="search-trigger" id="searchTrigger">
+        <span>Search</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--outline" id="calendarTrigger" aria-label="Open calendar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--fill" id="burgerTrigger" aria-label="Open menu">
+        <svg width="20" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="1" x2="24" y2="1"/><line x1="0" y1="9" x2="24" y2="9"/><line x1="0" y1="17" x2="24" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-inner">
+      <button type="button" class="side-menu-close" id="sideMenuClose" aria-label="Close menu">&times;</button>
+      <ul class="side-menu-secondary">
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+        <li><a href="#sign-up">Sign up</a></li>
+      </ul>
+      <ul class="side-menu-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+      <div class="side-menu-social">
+        <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+          <svg width="20" height="16" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button type="button" class="search-overlay-close" id="searchOverlayClose" aria-label="Close search">&times;</button>
+      <h3>What&rsquo;s on in the city of London</h3>
+      <div class="search-field">
+        <input type="text" placeholder="Type search" aria-label="Search">
+        <button type="button" aria-label="Search the website">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <ul class="search-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="confirm-hero">
+    <div class="confirm-badge">
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="var(--navy)" stroke-width="2.6"><polyline points="20,6 9,17 4,12"/></svg>
+    </div>
+    <h1 class="confirm-heading">Booking Confirmed!</h1>
+  </section>
+
+  <section class="confirm-info">
+    <div class="confirm-info-grid">
+      <div class="confirm-info-box">
+        <p>Your booking confirmation number is: <strong id="confirmNumber">&mdash;</strong></p>
+        <p>Booking date: <strong id="confirmDate">&mdash;</strong></p>
+        <p id="confirmEmailLine">A confirmation email will be sent once your booking partner processes payment.</p>
+      </div>
+      <div class="confirm-info-box confirm-info-box--actions">
+        <button type="button" class="btn btn--outline-navy" id="printBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="6,9 6,2 18,2 18,9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print Booking Confirmation
+        </button>
+        <a href="shows.html" class="confirm-action-link"><span class="hotel-room-check-icon">&#10003;</span> Book another show</a>
+        <a href="index.html" class="confirm-action-link"><span class="hotel-room-check-icon">&#10003;</span> Back to OneCity home</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="confirm-summary">
+    <h2 class="section-title">Booking Summary</h2>
+    <div class="confirm-summary-card">
+      <div class="confirm-summary-top">
+        <div class="confirm-summary-hotel">
+          <img id="summaryImg" src="" alt="">
+          <div>
+            <h3 id="summaryName">Show name</h3>
+            <p id="summaryAddress">Venue</p>
+          </div>
+        </div>
+        <div class="guest-summary-dates confirm-summary-dates">
+          <div>
+            <span class="guest-summary-label">Date</span>
+            <p class="guest-summary-date" id="summaryDate">18 Sep 2026</p>
+          </div>
+          <div>
+            <span class="guest-summary-label">Time</span>
+            <p class="guest-summary-date" id="summaryTime">7:30 pm</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="guest-summary-stay" id="summaryStay">2 Tickets</p>
+      <p class="guest-summary-room" id="summarySeatNames"></p>
+
+      <div class="confirm-total-box">
+        <div>
+          <span class="confirm-total-label">Total Price</span>
+          <span class="guest-price-incl">(Includes booking fee)</span>
+        </div>
+        <span class="confirm-total-value" id="priceTotal">&pound;0</span>
+      </div>
+      <p class="guest-price-incl" id="feeNote">Includes booking fee</p>
+    </div>
+  </section>
+
+  <section class="confirm-contact">
+    <div class="confirm-contact-grid">
+      <div>
+        <h2 class="section-title">Contact Venue</h2>
+        <div class="confirm-contact-card">
+          <p><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg> <a href="mailto:tickets@onecitylondon.com">tickets@onecitylondon.com</a></p>
+          <p><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg> +44 20 7000 0000</p>
+          <a href="mailto:tickets@onecitylondon.com" class="btn btn--outline-navy btn--sm">Send Message</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="section-title">Vouchers</h2>
+        <div class="confirm-voucher-card" id="voucherCard"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-band">
+    <div class="newsletter-band-inner">
+      <p>Become a OneCity Insider: exclusive event alerts, dining perks and City guides &mdash; straight to your inbox.</p>
+      <form class="newsletter-form newsletter-form--stacked" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white btn--sm">Subscribe
+          <svg viewBox="0 0 26 11" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="0" y1="5.5" x2="25" y2="5.5"/><polyline points="18,0.5 25,5.5 18,10.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="discover">
+    <div class="section-head">
+      <h2 class="section-title">Discover more near <span id="discoverShowName">your show</span></h2>
+      <a href="shows.html" class="btn btn--outline-navy btn--sm">See All <span class="arrow">&rarr;</span></a>
+    </div>
+    <div class="tile-scroll tile-scroll--cards">
+      <a class="discover-card" href="https://onecitylondon.com/article/where-to-get-the-best-views-of-london/">
+        <img src="assets/img/discover-views.jpg" alt="Where to get the best views of London">
+        <h4>Where to get the best views of London</h4>
+        <p>Historic architecture and towering skyscrapers form London's beautiful skyline &mdash; here's where to see it, all from the Square Mile.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/rooftop-bars-and-restaurants-city-of-london/">
+        <img src="assets/img/guide-rooftop.jpg" alt="Rooftop Bars and Restaurants in the City of London">
+        <h4>Rooftop Bars and Restaurants in the City of London</h4>
+        <p>Wind down after the show with a drink above the rooftops of the Square Mile.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/restaurants-in-city-of-london/">
+        <img src="assets/img/discover-restaurants.jpg" alt="19 of the best restaurants to eat in the City of London">
+        <h4>19 of the best restaurants to eat in the City of London</h4>
+        <p>Savor the flavors of the City of London with our guide to 19 of the best restaurants nearby.</p>
+      </a>
+      <a class="discover-card" href="https://onecitylondon.com/article/hidden-gems-city-of-london/">
+        <img src="assets/img/discover-hidden.jpg" alt="10 hidden gems in the City of London for you to explore!">
+        <h4>10 hidden gems in the City of London for you to explore!</h4>
+        <p>A treasure trail of hidden gems to find in just one square mile &ndash; the Square Mile.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-newsletter">
+      <h3>Sign up to the newsletter</h3>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/cookies/">Cookies</a></li>
+        <li><a href="https://onecitylondon.com/privacy/">Privacy</a></li>
+        <li><a href="https://onecitylondon.com/sitemap/">Sitemap</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/contact-us/">Contact Us</a></li>
+        <li><a href="https://onecitylondon.com/visitor-safety-and-security/">Visitor Safety and Security</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+        <svg width="22" height="18" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-partners">
+    <a href="https://www.cityoflondon.gov.uk/" class="partner-logo partner-logo--col">
+      <img src="assets/img/partner-col.png" alt="City of London Corporation">
+    </a>
+    <a href="https://nla.london/" class="partner-logo">
+      <img src="assets/img/partner-nla.png" alt="Partner">
+    </a>
+    <a href="https://www.citypropertyassociation.com/" class="partner-logo">
+      <img src="assets/img/partner-cpa.png" alt="Partner">
+    </a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/shows-data.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('show') || 'barbican-centre';
+  var show = SHOWS_DATA[slug] || SHOWS_DATA['barbican-centre'];
+  var date = params.get('date') || '';
+  var time = params.get('time') || '';
+  var qty = Math.max(1, Number(params.get('qty')) || 1);
+  var seatsParam = params.get('seats') || '';
+  var email = params.get('email') || '';
+
+  var perf = show.performances.find(function (p) { return p.date === date; });
+  var dateLabel = perf ? perf.label : date;
+
+  var tierByKey = {};
+  show.tiers.forEach(function (t) { tierByKey[t.key] = t; });
+
+  var seats = seatsParam ? seatsParam.split(',').map(function (entry) {
+    var parts = entry.split(':');
+    return { id: parts[0], tierKey: parts[1] };
+  }) : [];
+
+  document.title = 'Booking Confirmed - ' + show.eventName + ' - OneCity';
+  document.getElementById('summaryImg').src = show.img;
+  document.getElementById('summaryImg').alt = show.eventName;
+  document.getElementById('summaryName').textContent = show.eventName;
+  document.getElementById('summaryAddress').textContent = show.venue;
+  document.getElementById('summaryDate').textContent = dateLabel;
+  document.getElementById('summaryTime').textContent = time;
+  document.getElementById('discoverShowName').textContent = show.eventName;
+
+  document.getElementById('confirmNumber').textContent = String(Math.floor(100000 + Math.random() * 899999));
+  document.getElementById('confirmDate').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+  if (email) {
+    document.getElementById('confirmEmailLine').innerHTML = 'A confirmation email will be sent to <strong>' + email + '</strong> once your booking partner processes payment.';
+  }
+
+  document.getElementById('summaryStay').textContent = qty + ' Ticket' + (qty > 1 ? 's' : '');
+  document.getElementById('summarySeatNames').textContent = seats.map(function (seat) {
+    return 'Seat ' + seat.id.replace(/^[^-]+-/, '') + ' (' + tierByKey[seat.tierKey].label + ')';
+  }).join(', ');
+
+  document.getElementById('voucherCard').innerHTML = '' +
+    '<h4>' + show.eventName + '</h4>' +
+    '<p class="guest-room-rate">' + show.venue + '</p>' +
+    '<div class="confirm-voucher-highlight">' +
+      '<span class="confirm-voucher-label">Welcome offer</span>' +
+      '<p>Sign up to OneCity Insider for 10% off your next show booking in the City of London.</p>' +
+      '<p class="confirm-voucher-code">Code: <strong>ONECITY10</strong></p>' +
+    '</div>';
+
+  var subtotal = seats.reduce(function (sum, seat) { return sum + tierByKey[seat.tierKey].price; }, 0);
+  var fee = Math.round(subtotal * 0.08);
+  var total = subtotal + fee;
+  document.getElementById('priceTotal').textContent = '£' + total.toLocaleString();
+  document.getElementById('feeNote').textContent = 'Includes booking fee: £' + fee.toLocaleString();
+
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Tickets - OneCity</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="OneCity home">
+      <img src="assets/svg/logo.svg" alt="OneCity" width="180" height="30">
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="#" class="has-arrow">Things to do <span class="arrow">&rarr;</span></a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/guides/">Guides</a></li>
+        <li><a href="book-city.html">Book City</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="search-trigger" id="searchTrigger">
+        <span>Search</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--outline" id="calendarTrigger" aria-label="Open calendar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </button>
+      <button type="button" class="icon-btn icon-btn--fill" id="burgerTrigger" aria-label="Open menu">
+        <svg width="20" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="1" x2="24" y2="1"/><line x1="0" y1="9" x2="24" y2="9"/><line x1="0" y1="17" x2="24" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-inner">
+      <button type="button" class="side-menu-close" id="sideMenuClose" aria-label="Close menu">&times;</button>
+      <ul class="side-menu-secondary">
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+        <li><a href="#sign-up">Sign up</a></li>
+      </ul>
+      <ul class="side-menu-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+      <div class="side-menu-social">
+        <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+          <svg width="20" height="16" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button type="button" class="search-overlay-close" id="searchOverlayClose" aria-label="Close search">&times;</button>
+      <h3>What&rsquo;s on in the city of London</h3>
+      <div class="search-field">
+        <input type="text" placeholder="Type search" aria-label="Search">
+        <button type="button" aria-label="Search the website">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+      </div>
+      <ul class="search-categories">
+        <li><a href="https://onecitylondon.com/after-work/">After Work</a></li>
+        <li><a href="https://onecitylondon.com/arts-culture/">Arts &amp; Culture</a></li>
+        <li><a href="https://onecitylondon.com/whats-on/?show_calendar=1&amp;category=deals-offers">Deals &amp; Offers</a></li>
+        <li><a href="https://onecitylondon.com/experience/">Experiences</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/shop/">Shopping</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/wellbeing/">Wellbeing</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="results-topbar results-topbar--compact">
+    <div class="results-topbar-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="attractions.html">Attractions &amp; Experiences</a>
+        <span>/</span>
+        <a href="#" id="breadcrumbAttraction">Attraction</a>
+        <span>/</span>
+        <span>Tickets</span>
+      </nav>
+    </div>
+  </section>
+
+  <section class="ticket-checkout-page">
+    <div class="ticket-checkout-inner">
+      <div class="ticket-checkout-main">
+        <div class="ticket-card">
+          <h1 class="ticket-page-title" id="ticketPageTitle">Select Tickets</h1>
+          <p class="ticket-page-sub" id="ticketPageSub"></p>
+          <div id="ticketSteps"></div>
+        </div>
+      </div>
+
+      <aside class="order-summary" id="orderSummary">
+        <h3>Order Summary</h3>
+        <div id="orderSummaryBody"></div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-newsletter">
+      <h3>Sign up to the newsletter</h3>
+      <form class="newsletter-form" onsubmit="return false;">
+        <input type="text" placeholder="First name" aria-label="First name">
+        <input type="email" placeholder="Email address" aria-label="Email address">
+        <button type="submit" class="btn btn--outline-white">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="footer-links">
+      <ul>
+        <li><a href="https://onecitylondon.com/whats-on/">What&rsquo;s on</a></li>
+        <li><a href="https://onecitylondon.com/eat-and-drink/">Food &amp; Drink</a></li>
+        <li><a href="https://onecitylondon.com/hotels-in-city-of-london/">Stay</a></li>
+        <li><a href="https://onecitylondon.com/attractions-in-city-of-london/">Landmarks</a></li>
+        <li><a href="https://onecitylondon.com/cookies/">Cookies</a></li>
+        <li><a href="https://onecitylondon.com/privacy/">Privacy</a></li>
+        <li><a href="https://onecitylondon.com/sitemap/">Sitemap</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://onecitylondon.com/history-of-the-city-of-london/">History of the City</a></li>
+        <li><a href="https://onecitylondon.com/visiting-city-of-london/">Plan your Visit</a></li>
+        <li><a href="https://onecitylondon.com/directory/">Directory</a></li>
+        <li><a href="https://onecitylondon.com/contact-us/">Contact Us</a></li>
+        <li><a href="https://onecitylondon.com/visitor-safety-and-security/">Visitor Safety and Security</a></li>
+        <li><a href="https://onecitylondon.com/about-us/">About Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/onecitylondon" aria-label="Facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7C16.6 3.6 15.5 3.5 14.3 3.5c-2.6 0-4.4 1.6-4.4 4.5v2.9H7v3.1h2.9V21h3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/onecityldn" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@onecityldn" aria-label="YouTube">
+        <svg width="22" height="18" viewBox="0 0 24 18" fill="currentColor"><rect x="0" y="0" width="24" height="18" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 5.5v7l6-3.5z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-partners">
+    <a href="https://www.cityoflondon.gov.uk/" class="partner-logo partner-logo--col">
+      <img src="assets/img/partner-col.png" alt="City of London Corporation">
+    </a>
+    <a href="https://nla.london/" class="partner-logo">
+      <img src="assets/img/partner-nla.png" alt="Partner">
+    </a>
+    <a href="https://www.citypropertyassociation.com/" class="partner-logo">
+      <img src="assets/img/partner-cpa.png" alt="Partner">
+    </a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/attractions-data.js"></script>
+<script>
+(function () {
+  var PIN_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.6 7-11.5A7 7 0 0 0 5 9.5C5 14.4 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>';
+  var CLOCK_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>';
+  var CHECK_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20,6 9,17 4,12"/></svg>';
+  var TICKET_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/></svg>';
+  var GLOBE_ICON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>';
+  var EDIT_ICON = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
+
+  var DATA = ATTRACTIONS_DATA;
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var DOWS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  var TIME_POOL = ['9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM'];
+  var GUIDE_LANGS = ['English - Human tour guide', 'French - Human tour guide', 'Italian - Human tour guide', 'Spanish - Human tour guide'];
+
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('attraction') || DATA.items[0].slug;
+  var item = DATA.items.filter(function (i) { return i.slug === slug; })[0] || DATA.items[0];
+  var qty = Math.max(1, Math.min(10, Number(params.get('qty')) || 1));
+
+  document.title = 'Select Tickets - ' + item.name + ' - OneCity';
+  document.getElementById('breadcrumbAttraction').textContent = item.name;
+  document.getElementById('breadcrumbAttraction').href = 'attraction-detail.html?' + new URLSearchParams({ attraction: slug }).toString();
+  document.getElementById('ticketPageTitle').textContent = item.name;
+
+  function seededRandom(seed) {
+    var s = 0;
+    for (var i = 0; i < seed.length; i++) s = (s * 31 + seed.charCodeAt(i)) >>> 0;
+    return function () {
+      s = (s * 1664525 + 1013904223) >>> 0;
+      return s / 4294967296;
+    };
+  }
+
+  function isGuided() { return item.features.indexOf('guided') !== -1; }
+  function ticketTypeLabel() {
+    return (isGuided() ? 'Guided Tour and Entry Tickets with Priority Timeslot' : 'Entry Ticket with Priority Timeslot');
+  }
+
+  // ---- No-booking (free, self-guided) attractions ----
+  if (item.noBooking) {
+    document.getElementById('ticketPageSub').textContent = 'This is a free, self-guided experience — no tickets or time slot needed.';
+    document.getElementById('ticketSteps').innerHTML = '' +
+      '<p class="attraction-nobooking-note">Just turn up and follow the trail any time during opening hours. ' + item.meetingPoint + '</p>' +
+      '<a class="btn btn--filled-navy" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(item.venueAddress) + '">Get Directions</a>';
+    document.getElementById('orderSummaryBody').innerHTML = '' +
+      '<div class="order-summary-item">' +
+        '<img src="' + item.img + '" alt="' + item.name + '">' +
+        '<div><h4>' + item.name + '</h4><p>Free &middot; No booking required</p></div>' +
+      '</div>' +
+      '<p class="hotel-overview-text">' + item.venueAddress + '</p>';
+    return;
+  }
+
+  document.getElementById('ticketPageSub').textContent = 'Choose your date, ticket type and time to complete your booking.';
+
+  // ---- Availability (60 days) ----
+  var availRand = seededRandom(item.slug + '-availability');
+  var availabilityByDate = {};
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  for (var d = 0; d < 60; d++) {
+    var date = new Date(today);
+    date.setDate(today.getDate() + d);
+    var key = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+    var roll = availRand();
+    availabilityByDate[key] = roll < 0.06 ? 'sold' : (roll < 0.3 ? 'limited' : 'good');
+  }
+  var availableDates = Object.keys(availabilityByDate).sort();
+
+  var selectedDate = params.get('date');
+  if (!selectedDate || !availabilityByDate[selectedDate] || availabilityByDate[selectedDate] === 'sold') selectedDate = availableDates[0];
+
+  // ---- Time slots ----
+  var timeRand = seededRandom(item.slug + '-times');
+  var poolIdx = TIME_POOL.map(function (t, i) { return i; });
+  var pickedIdx = [];
+  while (pickedIdx.length < 2 && poolIdx.length) {
+    var pick = poolIdx.splice(Math.floor(timeRand() * poolIdx.length), 1)[0];
+    pickedIdx.push(pick);
+  }
+  pickedIdx.sort(function (a, b) { return a - b; });
+  var timeSlots = pickedIdx.map(function (i) { return TIME_POOL[i]; });
+  var selectedTime = params.get('time');
+  if (timeSlots.indexOf(selectedTime) === -1) selectedTime = timeSlots[0];
+
+  var qtyValue = qty;
+  var guideLang = params.get('guide') && GUIDE_LANGS.indexOf(params.get('guide')) !== -1 ? params.get('guide') : GUIDE_LANGS[0];
+
+  // ---- Step numbering (guide language step only appears for guided experiences) ----
+  var stepNum = 0;
+  function nextStep() { stepNum += 1; return stepNum; }
+
+  var dateStepN = nextStep();
+  var typeStepN = nextStep();
+  var timeStepN = nextStep();
+  var qtyStepN = nextStep();
+  var guideStepN = isGuided() ? nextStep() : null;
+
+  function formatDateLabel(dateStr) {
+    var parts = dateStr.split('-').map(Number);
+    var dt = new Date(parts[0], parts[1] - 1, parts[2]);
+    return dt.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  // ---- Render steps ----
+  document.getElementById('ticketSteps').innerHTML = '' +
+    '<div class="ticket-step">' +
+      '<div class="ticket-step-head">' +
+        '<div class="ticket-step-head-text">' +
+          '<span class="ticket-step-num">' + String(dateStepN).padStart(2, '0') + '</span>' +
+          '<div><h2>Select Date</h2><p>Choose the day of your visit</p></div>' +
+        '</div>' +
+        '<button type="button" class="ticket-step-toggle" id="allDatesBtn">All Dates</button>' +
+      '</div>' +
+      '<div class="date-strip" id="dateStrip"></div>' +
+      '<div class="ticket-full-calendar" id="fullCalendar" hidden>' +
+        '<div class="show-calendar-header">' +
+          '<button type="button" class="show-calendar-nav-btn" id="calPrevBtn" aria-label="Previous month"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg></button>' +
+          '<span id="calMonthLabel"></span>' +
+          '<button type="button" class="show-calendar-nav-btn" id="calNextBtn" aria-label="Next month"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg></button>' +
+        '</div>' +
+        '<div class="show-calendar-weekdays"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>' +
+        '<div class="show-calendar-grid" id="calGrid"></div>' +
+        '<div class="show-availability-legend"><span><i class="dot dot--good"></i> Good</span><span><i class="dot dot--limited"></i> Limited</span><span><i class="dot dot--sold"></i> Sold Out</span></div>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="ticket-step">' +
+      '<div class="ticket-step-head">' +
+        '<div class="ticket-step-head-text">' +
+          '<span class="ticket-step-num">' + String(typeStepN).padStart(2, '0') + '</span>' +
+          '<div><h2>Select Ticket Type</h2><p>Your included ticket option</p></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="ticket-type-option is-selected">' +
+        '<label class="ticket-type-option-head"><input type="radio" checked readonly> <strong>' + ticketTypeLabel() + '</strong></label>' +
+        '<div class="ticket-type-option-body">' +
+          '<div class="ticket-type-fact">' + CLOCK_ICON + '<span><strong>Duration:</strong> ' + item.durationLabel + '</span></div>' +
+          '<div class="ticket-type-fact">' + PIN_ICON + '<span><strong>Meeting Point:</strong> ' + item.meetingPoint + '</span></div>' +
+          '<div>' +
+            '<p style="font-size:13px;font-weight:600;color:var(--navy);margin:0 0 8px;">What&rsquo;s Included</p>' +
+            '<ul class="ticket-type-included">' + item.included.map(function (h) { return '<li>' + CHECK_ICON + '<span>' + h + '</span></li>'; }).join('') + '</ul>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="ticket-step">' +
+      '<div class="ticket-step-head">' +
+        '<div class="ticket-step-head-text">' +
+          '<span class="ticket-step-num">' + String(timeStepN).padStart(2, '0') + '</span>' +
+          '<div><h2>Select Time</h2><p>Choose your preferred time</p></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="time-slot-grid" id="timeSlotGrid"></div>' +
+    '</div>' +
+
+    '<div class="ticket-step">' +
+      '<div class="ticket-step-head">' +
+        '<div class="ticket-step-head-text">' +
+          '<span class="ticket-step-num">' + String(qtyStepN).padStart(2, '0') + '</span>' +
+          '<div><h2>Select Quantity</h2><p>Choose how many tickets you need</p></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="qty-stepper">' +
+        '<span class="qty-stepper-label">Tickets &middot; &pound;' + item.price + ' pp</span>' +
+        '<div class="qty-stepper-control">' +
+          '<button type="button" class="qty-stepper-btn" id="qtyMinus" aria-label="Decrease quantity">&minus;</button>' +
+          '<span class="qty-stepper-value" id="qtyValue">' + qtyValue + '</span>' +
+          '<button type="button" class="qty-stepper-btn" id="qtyPlus" aria-label="Increase quantity">+</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+
+    (isGuided() ? (
+      '<div class="ticket-step">' +
+        '<div class="ticket-step-head">' +
+          '<div class="ticket-step-head-text">' +
+            '<span class="ticket-step-num">' + String(guideStepN).padStart(2, '0') + '</span>' +
+            '<div><h2>Select Guide Language</h2><p>Choose the language of your guided tour</p></div>' +
+          '</div>' +
+        '</div>' +
+        '<select class="ticket-select" id="guideLangSelect">' + GUIDE_LANGS.map(function (g) { return '<option' + (g === guideLang ? ' selected' : '') + '>' + g + '</option>'; }).join('') + '</select>' +
+      '</div>'
+    ) : '');
+
+  // ---- Date strip + full calendar ----
+  var dateStrip = document.getElementById('dateStrip');
+  var fullCalendar = document.getElementById('fullCalendar');
+  var allDatesBtn = document.getElementById('allDatesBtn');
+  var calGrid = document.getElementById('calGrid');
+  var calMonthLabel = document.getElementById('calMonthLabel');
+  var calPrevBtn = document.getElementById('calPrevBtn');
+  var calNextBtn = document.getElementById('calNextBtn');
+  var monthKeys = Array.from(new Set(availableDates.map(function (dt) { return dt.slice(0, 7); }))).sort();
+  var currentMonthKey = selectedDate.slice(0, 7);
+
+  function renderDateStrip() {
+    var strip = availableDates.slice(0, 7);
+    dateStrip.innerHTML = strip.map(function (dateStr) {
+      var parts = dateStr.split('-').map(Number);
+      var dt = new Date(parts[0], parts[1] - 1, parts[2]);
+      var status = availabilityByDate[dateStr];
+      var active = dateStr === selectedDate ? ' is-active' : '';
+      var disabled = status === 'sold' ? ' disabled' : '';
+      return '<button type="button" class="date-chip' + active + '"' + disabled + ' data-date="' + dateStr + '">' +
+        '<span class="date-chip-dow">' + DOWS[(dt.getDay() + 6) % 7] + '</span>' +
+        '<span class="date-chip-day">' + dt.getDate() + '</span>' +
+        '<span class="date-chip-month">' + MONTHS[dt.getMonth()].slice(0, 3) + '</span>' +
+        '<i class="dot dot--' + status + ' date-chip-dot"></i>' +
+      '</button>';
+    }).join('');
+    dateStrip.querySelectorAll('.date-chip:not(:disabled)').forEach(function (chip) {
+      chip.addEventListener('click', function () { selectDate(chip.dataset.date); });
+    });
+  }
+
+  function shiftMonthKey(monthKey, delta) {
+    var year = Number(monthKey.slice(0, 4));
+    var month = Number(monthKey.slice(5, 7)) - 1 + delta;
+    var dt = new Date(year, month, 1);
+    return dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0');
+  }
+
+  function renderFullCalendar() {
+    var year = Number(currentMonthKey.slice(0, 4));
+    var month = Number(currentMonthKey.slice(5, 7)) - 1;
+    calMonthLabel.textContent = MONTHS[month] + ' ' + year;
+    calPrevBtn.disabled = monthKeys.indexOf(shiftMonthKey(currentMonthKey, -1)) === -1;
+    calNextBtn.disabled = monthKeys.indexOf(shiftMonthKey(currentMonthKey, 1)) === -1;
+
+    var firstOfMonth = new Date(year, month, 1);
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var leadingBlanks = (firstOfMonth.getDay() + 6) % 7;
+    var cells = [];
+    for (var i = 0; i < leadingBlanks; i++) cells.push('<span class="show-calendar-day show-calendar-day--empty"></span>');
+    for (var day = 1; day <= daysInMonth; day++) {
+      var dateStr = currentMonthKey + '-' + String(day).padStart(2, '0');
+      var status = availabilityByDate[dateStr];
+      if (status) {
+        var active = dateStr === selectedDate ? ' is-active' : '';
+        cells.push('<button type="button" class="show-calendar-day' + active + '" data-date="' + dateStr + '">' + day + '<i class="dot dot--' + status + '"></i></button>');
+      } else {
+        cells.push('<span class="show-calendar-day show-calendar-day--disabled">' + day + '</span>');
+      }
+    }
+    calGrid.innerHTML = cells.join('');
+    calGrid.querySelectorAll('.show-calendar-day:not(.show-calendar-day--disabled):not(.show-calendar-day--empty)').forEach(function (cell) {
+      cell.addEventListener('click', function () {
+        if (availabilityByDate[cell.dataset.date] === 'sold') return;
+        selectDate(cell.dataset.date);
+      });
+    });
+  }
+
+  function selectDate(dateStr) {
+    selectedDate = dateStr;
+    currentMonthKey = dateStr.slice(0, 7);
+    renderDateStrip();
+    renderFullCalendar();
+    renderSummary();
+  }
+
+  calPrevBtn.addEventListener('click', function () { currentMonthKey = shiftMonthKey(currentMonthKey, -1); renderFullCalendar(); });
+  calNextBtn.addEventListener('click', function () { currentMonthKey = shiftMonthKey(currentMonthKey, 1); renderFullCalendar(); });
+  allDatesBtn.addEventListener('click', function () {
+    var open = fullCalendar.hasAttribute('hidden');
+    if (open) { fullCalendar.removeAttribute('hidden'); allDatesBtn.textContent = 'Compact View'; }
+    else { fullCalendar.setAttribute('hidden', ''); allDatesBtn.textContent = 'All Dates'; }
+  });
+
+  renderDateStrip();
+  renderFullCalendar();
+
+  // ---- Time slots ----
+  var timeSlotGrid = document.getElementById('timeSlotGrid');
+  function renderTimeSlots() {
+    timeSlotGrid.innerHTML = timeSlots.map(function (t) {
+      return '<button type="button" class="time-slot-btn' + (t === selectedTime ? ' is-active' : '') + '" data-time="' + t + '">' + t + '</button>';
+    }).join('');
+    timeSlotGrid.querySelectorAll('.time-slot-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { selectedTime = btn.dataset.time; renderTimeSlots(); renderSummary(); });
+    });
+  }
+  renderTimeSlots();
+
+  // ---- Quantity ----
+  document.getElementById('qtyMinus').addEventListener('click', function () {
+    qtyValue = Math.max(1, qtyValue - 1);
+    document.getElementById('qtyValue').textContent = qtyValue;
+    renderSummary();
+  });
+  document.getElementById('qtyPlus').addEventListener('click', function () {
+    qtyValue = Math.min(10, qtyValue + 1);
+    document.getElementById('qtyValue').textContent = qtyValue;
+    renderSummary();
+  });
+
+  // ---- Guide language ----
+  var guideLangSelect = document.getElementById('guideLangSelect');
+  if (guideLangSelect) {
+    guideLangSelect.addEventListener('change', function () { guideLang = guideLangSelect.value; renderSummary(); });
+  }
+
+  // ---- Order summary ----
+  function renderSummary() {
+    var subtotal = item.price * qtyValue;
+    var fee = Math.round(subtotal * 0.03 * 100) / 100;
+    var total = Math.round((subtotal + fee) * 100) / 100;
+
+    document.getElementById('orderSummaryBody').innerHTML = '' +
+      '<div class="order-summary-item">' +
+        '<img src="' + item.img + '" alt="' + item.name + '">' +
+        '<div>' +
+          '<h4>' + item.name + '</h4>' +
+          '<p>' + formatDateLabel(selectedDate) + ', ' + selectedTime + '<br>' + item.venueAddress.split(',')[0] + '</p>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="order-summary-row">' +
+        '<span class="order-summary-row-icon">' + TICKET_ICON + '</span>' +
+        '<div style="flex:1;"><p class="order-summary-row-label">Ticket Type</p><p class="order-summary-row-value">' + ticketTypeLabel() + '</p></div>' +
+      '</div>' +
+
+      '<div class="order-summary-row">' +
+        '<span class="order-summary-row-icon">' + PIN_ICON + '</span>' +
+        '<div style="flex:1;"><p class="order-summary-row-label">Meeting Point</p><p class="order-summary-row-value">' + item.meetingPoint + '</p></div>' +
+      '</div>' +
+
+      (isGuided() ? (
+        '<div class="order-summary-row" style="border-bottom:none;">' +
+          '<span class="order-summary-row-icon">' + GLOBE_ICON + '</span>' +
+          '<div style="flex:1;"><p class="order-summary-row-label">Guide language</p><p class="order-summary-row-value">' + guideLang + '</p></div>' +
+        '</div>'
+      ) : '') +
+
+      '<div class="order-summary-price">' +
+        '<div class="order-summary-price-row"><span>Group (' + qtyValue + ' &times; &pound;' + item.price.toLocaleString() + ')</span><span>&pound;' + subtotal.toLocaleString() + '</span></div>' +
+        '<div class="order-summary-price-row"><span>Booking Fee</span><span>&pound;' + fee.toFixed(2) + '</span></div>' +
+        '<div class="order-summary-total"><span>Total</span><span>&pound;' + total.toFixed(2) + '</span></div>' +
+      '</div>' +
+
+      '<button type="button" class="btn btn--filled-navy order-summary-btn" id="nextBtn">Next</button>';
+
+    document.getElementById('nextBtn').addEventListener('click', function () {
+      var p = new URLSearchParams({
+        attraction: slug, date: selectedDate, time: selectedTime, qty: qtyValue, guide: guideLang
+      });
+      window.location.href = 'attraction-guest-details.html?' + p.toString();
+    });
+  }
+
+  renderSummary();
+})();
+</script>
+</body>
+</html>

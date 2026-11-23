@@ -248,7 +248,7 @@
         <h2 class="section-title">Shows near <span id="showsVenueName"></span></h2>
         <p class="promo-section-text">Theatre, live music and gallery openings on the same stretch of the Square Mile.</p>
       </div>
-      <a href="book-city.html#shows" class="btn btn--outline-navy btn--sm">View all shows <span class="arrow">&rarr;</span></a>
+      <a href="shows.html" class="btn btn--outline-navy btn--sm">View all shows <span class="arrow">&rarr;</span></a>
     </div>
     <div class="tile-scroll tile-scroll--cards tile-scroll--bleed" id="showsScroll"></div>
     <div class="scroll-controls">
@@ -424,12 +424,12 @@
   var DINING_COUNT = 3;
 
   var SHOWS = [
-    { name: 'Barbican Centre', badge: 'Iconic Venue', area: 'Barbican &middot; Theatre &amp; Concerts', img: 'assets/img/book-shows.png', dates: 'Multiple dates this week', price: '&pound;20', unit: 'pp', href: 'book-city.html#shows', slug: 'barbican-centre' },
-    { name: 'LSO St Luke&rsquo;s', badge: 'Live Music', area: 'Old Street &middot; Classical &amp; Contemporary', img: 'assets/img/cat-arts-culture.jpg', dates: 'Next concert: Friday 7:30pm', price: '&pound;15', unit: 'pp', href: 'book-city.html#shows' },
-    { name: 'Guildhall School of Music &amp; Drama', badge: 'Rising Talent', area: 'Barbican &middot; Student &amp; Guest Performances', img: 'assets/img/guide-art.jpg', dates: 'Nightly performances', price: '&pound;12', unit: 'pp', href: 'book-city.html#shows' },
-    { name: 'Milton Court Concert Hall', badge: 'Intimate Setting', area: 'Barbican &middot; Recitals &amp; Chamber Music', img: 'assets/img/guide-evening.jpg', dates: 'This weekend only', price: '&pound;18', unit: 'pp', href: 'book-city.html#shows' },
-    { name: 'St Paul&rsquo;s Cathedral', badge: 'Free to Attend', area: 'St Paul&rsquo;s &middot; Choral Evensong', img: 'assets/img/guide-walks.jpg', dates: 'Daily at 5pm', free: true, href: 'book-city.html#shows', slug: 'st-pauls-cathedral' },
-    { name: 'Leadenhall Market Live', badge: 'Local Favourite', area: 'Leadenhall Market &middot; Live Sessions', img: 'assets/img/guide-friday.jpg', dates: 'Every Thursday', price: '&pound;10', unit: 'pp', href: 'book-city.html#shows', slug: 'leadenhall-market' }
+    { name: 'Barbican Centre', badge: 'Iconic Venue', area: 'Barbican &middot; Theatre &amp; Concerts', img: 'assets/img/book-shows.png', dates: 'Multiple dates this week', price: '&pound;20', unit: 'pp', href: 'show-detail.html?show=barbican-centre', slug: 'barbican-centre' },
+    { name: 'LSO St Luke&rsquo;s', badge: 'Live Music', area: 'Old Street &middot; Classical &amp; Contemporary', img: 'assets/img/cat-arts-culture.jpg', dates: 'Next concert: Friday 7:30pm', price: '&pound;15', unit: 'pp', href: 'show-detail.html?show=lso-st-lukes' },
+    { name: 'Guildhall School of Music &amp; Drama', badge: 'Rising Talent', area: 'Barbican &middot; Student &amp; Guest Performances', img: 'assets/img/guide-art.jpg', dates: 'Nightly performances', price: '&pound;12', unit: 'pp', href: 'show-detail.html?show=guildhall-school' },
+    { name: 'Milton Court Concert Hall', badge: 'Intimate Setting', area: 'Barbican &middot; Recitals &amp; Chamber Music', img: 'assets/img/guide-evening.jpg', dates: 'This weekend only', price: '&pound;18', unit: 'pp', href: 'show-detail.html?show=milton-court' },
+    { name: 'St Paul&rsquo;s Cathedral', badge: 'Free to Attend', area: 'St Paul&rsquo;s &middot; Choral Evensong', img: 'assets/img/guide-walks.jpg', dates: 'Daily at 5pm', free: true, href: 'venue-detail.html?venue=st-pauls-cathedral', slug: 'st-pauls-cathedral' },
+    { name: 'Leadenhall Market Live', badge: 'Local Favourite', area: 'Leadenhall Market &middot; Live Sessions', img: 'assets/img/guide-friday.jpg', dates: 'Every Thursday', price: '&pound;10', unit: 'pp', href: 'venue-detail.html?venue=leadenhall-market', slug: 'leadenhall-market' }
   ];
 
   var params = new URLSearchParams(window.location.search);
